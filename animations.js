@@ -30,8 +30,8 @@ cross.addEventListener("click", () => {
 
 document.body.addEventListener("mousemove", (e) => {
   gsap.to("#cursor", {
-    x: e.clientX,
-    y: e.clientY,
+    x: e.pageX,
+    y: e.pageY,
     ease: "slow",
   });
 });
