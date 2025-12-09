@@ -9,13 +9,9 @@ Welcome to my personal portfolio website built with React.js, showcasing my skil
 - [About](#about)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Achievements Timeline](#achievements-timeline)
-- [Contributing](#contributing)
 - [License](#license)
-- [Contact](#contact)
 
 ---
 
