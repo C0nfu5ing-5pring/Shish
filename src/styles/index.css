@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Schoolbell&display=swap");
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Bristol";
+  src: url("/src/assets/fonts/Bristol.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-heading: "Schoolbell", sans-serif;
+  --font-body: "Schoolbell", sans-serif;
+  --font-display: "Bristol", "Inter", system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.5px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  cursor: none;
+}
+
+.vertical {
+  transform: rotate(180deg);
+  border: solid 1px black;
+  height: auto;
+}
+
+.text {
+  display: inline-block;
+  font-size: 3rem;
+  line-height: 1;
+  margin-right: 0.5rem;
+}
+
+.displayFont {
+  font-family: var(--font-display);
+}
