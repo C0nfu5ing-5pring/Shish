@@ -39,7 +39,7 @@ const AchievementsTimeline = () => {
       subtitle: "Bal Bharati Public School, Jhanor",
       description:
         "Participated in the first-ever BBPS Hackathon, building creative and problem-solving skills through teamwork and coding challenges.",
-      icon: { bbpsIcon },
+      icon: bbpsIcon,
       link: "/bbps-hackathon-1.0",
     },
     {
@@ -57,7 +57,7 @@ const AchievementsTimeline = () => {
       subtitle: "SilverZone Olympiads",
       description:
         "Achieved top ranks in three national-level Olympiads organized by SilverZone Foundation — Silver Medal in iiO, Gold in SKGKO, and Gold in IOEL.",
-      icon: { silverZoneIcon },
+      icon: silverZoneIcon,
       link: "/silverzone",
     },
   ];
