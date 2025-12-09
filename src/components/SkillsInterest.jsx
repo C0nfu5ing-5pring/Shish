@@ -3,9 +3,22 @@ import ProjectCard from "../components/ProjectCard";
 import RoughCircleHeading from "./RoughCircleHeading";
 import RoughTagHeading from "./RoughTagHeading";
 import RoughHighlightHeading from "./RoughHiglightHeading";
+import htmlIcon from "../assets/icons/html5.svg";
+import cssIcon from "../assets/icons/css3.svg";
+import githubIcon from "../assets/icons/github.svg";
+import javascriptIcon from "../assets/icons/javascript.svg";
+import pythonIcon from "../assets/icons/python.svg";
+import reactIcon from "../assets/icons/react.svg";
+import sassIcon from "../assets/icons/sass.svg";
+import tailwindcssIcon from "../assets/icons/tailwindcss.svg";
+import useRecipeImg from "../assets/images/useRecipe.png";
+import todoListImg from "../assets/images/todoList.png";
+import githubProfileLoaderImg from "../assets/images/githubProfileLoader.png";
+import productivityDashboardImg from "../assets/images/productivityDashboard.png";
+import mindVaultImg from "../assets/images/mindVault.png";
+import alumniPortalImg from "../assets/images/alumniPortal.jpg";
 
 const SkillsInterest = () => {
-  // const themeColor = useThemeColor();
   return (
     <>
       <section className="flex justify-center py-10">
@@ -16,22 +29,22 @@ const SkillsInterest = () => {
         <RoughTagHeading children="Web Development and Programming" />
         <div className="flex flex-wrap mt-10 gap-10 justify-center">
           <img
-            src="../src/assets/icons/html5.svg"
+            src={htmlIcon}
             className="w-20 h-20 md:h-25 md:w-25"
             draggable="false"
           />
           <img
-            src="../src/assets/icons/css3.svg"
+            src={cssIcon}
             className="w-20 h-20 md:h-25 md:w-25"
             draggable="false"
           />
           <img
-            src="../src/assets/icons/tailwindcss.svg"
+            src={tailwindcssIcon}
             className="w-20 h-20 md:h-25 md:w-25"
             draggable="false"
           />
           <img
-            src="../src/assets/icons/sass.svg"
+            src={sassIcon}
             className="w-20 h-20 md:h-25 md:w-25"
             draggable="false"
           />
@@ -60,22 +73,22 @@ const SkillsInterest = () => {
             />
           </svg>
           <img
-            src="../src/assets/icons/javascript.svg"
+            src={javascriptIcon}
             className="w-20 h-20 md:h-25 md:w-25"
             draggable="false"
           />
           <img
-            src="../src/assets/icons/react.svg"
+            src={reactIcon}
             className="w-20 h-20 md:h-25 md:w-25"
             draggable="false"
           />
           <img
-            src="../src/assets/icons/python.svg"
+            src={pythonIcon}
             className="w-20 h-20 md:h-25 md:w-25"
             draggable="false"
           />
           <img
-            src="../src/assets/icons/github.svg"
+            src={githubIcon}
             className="w-20 h-20 md:h-25 md:w-25"
             draggable="false"
           />
@@ -87,7 +100,7 @@ const SkillsInterest = () => {
 
         <div className="flex flex-wrap mt-10 gap-10 justify-center">
           <ProjectCard
-            image="src/assets/images/useRecipe.png"
+            image={useRecipeImg}
             title="useRecipe"
             description={
               "A React-based recipe app built using React Router. Users can view, add, and manage recipes."
@@ -98,7 +111,7 @@ const SkillsInterest = () => {
           />
 
           <ProjectCard
-            image="src/assets/images/productivityDashboard.png"
+            image={productivityDashboardImg}
             title="Productivity Dashboard"
             description={
               "Track tasks, visualize progress, and customize the layout to fit your workflow."
@@ -109,7 +122,7 @@ const SkillsInterest = () => {
           />
 
           <ProjectCard
-            image="src/assets/images/githubProfileLoader.png"
+            image={githubProfileLoaderImg}
             title="Github Profile Loader"
             description={
               "A fast, responsive GitHub profile viewer built with vanilla JavaScript and Tailwind CSS."
@@ -120,7 +133,7 @@ const SkillsInterest = () => {
           />
 
           <ProjectCard
-            image="src/assets/images/mindVault.png"
+            image={mindVaultImg}
             title="Mind Vault"
             description={
               "Mind Vault is a minimalist web app for organizing thoughts, tasks, and notes in a clean, dark-themed interface."
@@ -131,7 +144,7 @@ const SkillsInterest = () => {
           />
 
           <ProjectCard
-            image="src/assets/images/todoList.png"
+            image={todoListImg}
             title="Todo List"
             description={
               "A clean and minimal React To-do app with full CRUD functionality, styled using Tailwind CSS "
@@ -142,7 +155,7 @@ const SkillsInterest = () => {
           />
 
           <ProjectCard
-            image="src/assets/images/alumniPortal.jpg"
+            image={alumniPortalImg}
             title="BBPS Alumni Portal"
             description={
               "It won the Most Innovative Award at BBPS Hackathon 2024."

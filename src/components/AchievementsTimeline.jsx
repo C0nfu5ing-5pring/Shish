@@ -7,6 +7,8 @@ import { ArrowUpRight } from "lucide-react";
 import "react-vertical-timeline-component/style.min.css";
 import { useThemeColor } from "./ThemeColorContext";
 import RoughTagHeading from "./RoughTagHeading";
+import bbpsIcon from "../assets/images/BBPS.ico";
+import silverZoneIcon from "../assets/images/silverzone.png";
 
 const AchievementsTimeline = () => {
   const navigate = useNavigate();
@@ -37,7 +39,7 @@ const AchievementsTimeline = () => {
       subtitle: "Bal Bharati Public School, Jhanor",
       description:
         "Participated in the first-ever BBPS Hackathon, building creative and problem-solving skills through teamwork and coding challenges.",
-      icon: "src/assets/images/BBPS.ico",
+      icon: { bbpsIcon },
       link: "/bbps-hackathon-1.0",
     },
     {
@@ -55,7 +57,7 @@ const AchievementsTimeline = () => {
       subtitle: "SilverZone Olympiads",
       description:
         "Achieved top ranks in three national-level Olympiads organized by SilverZone Foundation — Silver Medal in iiO, Gold in SKGKO, and Gold in IOEL.",
-      icon: "src/assets/images/silverzone.png",
+      icon: { silverZoneIcon },
       link: "/silverzone",
     },
   ];

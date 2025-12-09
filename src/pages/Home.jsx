@@ -2,7 +2,7 @@ import About from "./About";
 const Home = () => {
   return (
     <div>
-      <About></About>
+      <About />
     </div>
   );
 };

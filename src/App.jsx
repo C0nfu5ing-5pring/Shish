@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom"; // Changed from BrowserRouter to HashRouter
 import AppRoutes from "./AppRoutes";
 import MainLayout from "./layouts/MainLayout";
 import CustomCursor from "./components/CustomCursor";
@@ -8,12 +8,12 @@ const App = () => {
   return (
     <div>
       <ThemeColorProvider>
-        <BrowserRouter>
+        <HashRouter>
           <CustomCursor />
           <MainLayout>
             <AppRoutes />
           </MainLayout>
-        </BrowserRouter>
+        </HashRouter>
       </ThemeColorProvider>
     </div>
   );
