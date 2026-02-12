@@ -12,7 +12,7 @@ import reactIcon from "../assets/icons/react.svg";
 import sassIcon from "../assets/icons/sass.svg";
 import tailwindcssIcon from "../assets/icons/tailwindcss.svg";
 import useRecipeImg from "../assets/images/useRecipe.png";
-import todoListImg from "../assets/images/todoList.png";
+import saralratesImage from "../assets/images/saralratesImage.png";
 import githubProfileLoaderImg from "../assets/images/githubProfileLoader.png";
 import productivityDashboardImg from "../assets/images/productivityDashboard.png";
 import mindVaultImg from "../assets/images/mindVault.png";
@@ -100,6 +100,17 @@ const SkillsInterest = () => {
 
         <div className="flex flex-wrap mt-10 gap-10 justify-center">
           <ProjectCard
+            image={saralratesImage}
+            title="SaralRates"
+            description={
+              "Saral Rates is a website for traders to check prices of different commodities published by the Indian Government daily."
+            }
+            tech={["React", "TailwindCSS"]}
+            github="https://github.com/C0nfu5ing-5pring/SaralRates"
+            live="https://saral-rates.vercel.app/"
+          />
+
+          <ProjectCard
             image={useRecipeImg}
             title="useRecipe"
             description={
@@ -141,17 +152,6 @@ const SkillsInterest = () => {
             tech={["HTML", "TailwindCSS", "JS"]}
             github="https://github.com/C0nfu5ing-5pring/Mind-Vault"
             live="https://c0nfu5ing-5pring.github.io/Mind-Vault/"
-          />
-
-          <ProjectCard
-            image={todoListImg}
-            title="Todo List"
-            description={
-              "A clean and minimal React To-do app with full CRUD functionality, styled using Tailwind CSS "
-            }
-            tech={["React", "TailwindCSS"]}
-            github="https://github.com/C0nfu5ing-5pring/CRUD-To-do"
-            live="https://c0nfu5ing-5pring.github.io/CRUD-To-do/"
           />
 
           <ProjectCard
