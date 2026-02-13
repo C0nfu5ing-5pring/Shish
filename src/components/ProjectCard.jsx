@@ -10,7 +10,6 @@ const Card = ({ containerRef, onClose }) => {
     axios
       .get("https://api.github.com/users/C0nfu5ing-5pring/repos?sort=updated")
       .then((res) => {
-        console.log(res.data);
         setRepos(res.data);
       })
       .catch((err) => {
