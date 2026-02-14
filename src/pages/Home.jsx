@@ -1,20 +1,44 @@
 import { useRef, useState } from "react";
-import ProjectCard from "../components/ProjectCard";
 import { AnimatePresence } from "motion/react";
+import ProjectCard from "../components/ProjectCard";
+import AcitivitesCard from "../components/AcitivitesCard";
+import GalleryCard from "../components/GalleryCard";
+import ContactCard from "../components/ContactCard";
+import BooksReadCard from "../components/BooksReadCard";
 
 const Home = () => {
   const date = new Date();
   const year = date.getFullYear();
   const containerRef = useRef(null);
-  const [cardVisible, setCardVisible] = useState(true);
+  const [projectCardVisible, setProjectCardVisible] = useState(true);
+  const [activitiesCardVisible, setActivitiesCardVisible] = useState(true);
+  const [galleryCardVisible, setGalleryCardVisible] = useState(true);
+  const [contactCardVisible, setContactCardVisible] = useState(true);
+  const [booksReadCardVisible, setBooksReadCardVisible] = useState(true);
 
-  const onClose = () => {
-    setCardVisible(false);
+  const onProjectCardClose = () => {
+    setProjectCardVisible(false);
+  };
+
+  const onActivitiesCardClose = () => {
+    setActivitiesCardVisible(false);
+  };
+
+  const onGalleryCardClose = () => {
+    setGalleryCardVisible(false);
+  };
+
+  const onContactCardClose = () => {
+    setContactCardVisible(false);
+  };
+
+  const onBooksReadCardClose = () => {
+    setBooksReadCardVisible(false);
   };
 
   return (
     <>
-      <div ref={containerRef} className="p-15 flex flex-col">
+      <div ref={containerRef} className="p-15 flex flex-col h-screen">
         <div className="flex flex-col justify-center items-center gap-20">
           <h1 className="text-8xl text-center font-black">Shish</h1>
           <p className="w-[65%] text-4xl text-right">
@@ -35,8 +59,47 @@ const Home = () => {
         </div>
 
         <AnimatePresence>
-          {cardVisible && (
-            <ProjectCard containerRef={containerRef} onClose={onClose} />
+          {projectCardVisible && (
+            <ProjectCard
+              containerRef={containerRef}
+              onClose={onProjectCardClose}
+            />
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {activitiesCardVisible && (
+            <AcitivitesCard
+              containerRef={containerRef}
+              onClose={onActivitiesCardClose}
+            />
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {galleryCardVisible && (
+            <GalleryCard
+              containerRef={containerRef}
+              onClose={onGalleryCardClose}
+            />
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {contactCardVisible && (
+            <ContactCard
+              containerRef={containerRef}
+              onClose={onContactCardClose}
+            />
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {booksReadCardVisible && (
+            <BooksReadCard
+              containerRef={containerRef}
+              onClose={onBooksReadCardClose}
+            />
           )}
         </AnimatePresence>
       </div>

@@ -1,30 +1,11 @@
 import { motion } from "motion/react";
-import IndividualProjectCard from "./IndividualProjectCard";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
-const Card = ({ containerRef, onClose }) => {
-  const [repos, setRepos] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://api.github.com/users/C0nfu5ing-5pring/repos?sort=updated")
-      .then((res) => {
-        setRepos(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
+const AcitivitesCard = ({ containerRef, onClose }) => {
   return (
     <>
       <motion.div
         drag
         dragConstraints={containerRef}
-        whileTap={{
-          zIndex: 9,
-        }}
         initial={{
           x: Math.random() * window.innerWidth,
           y: Math.random() * window.innerHeight,
@@ -45,7 +26,7 @@ const Card = ({ containerRef, onClose }) => {
       >
         <div className="flex justify-between border-b bg-gray-400 px-3 py-1">
           <div>
-            <h1 className="font-black text-xl">Projects</h1>
+            <h1 className="font-black text-xl">Recent Activites</h1>
           </div>
           <motion.button
             whileTap={{ scale: 0.9 }}
@@ -56,21 +37,10 @@ const Card = ({ containerRef, onClose }) => {
           </motion.button>
         </div>
 
-        <div className="m-5 grid grid-cols-2 gap-5">
-          {repos.map((repo) => {
-            return (
-              <IndividualProjectCard
-                key={repo.id}
-                url={repo.homepage || repo.html_url}
-                title={repo.name}
-                desc={repo.description || "No description"}
-              />
-            );
-          })}
-        </div>
+        <div className="m-5 grid grid-cols-2 gap-5">Coming soon</div>
       </motion.div>
     </>
   );
 };
 
-export default Card;
+export default AcitivitesCard;
