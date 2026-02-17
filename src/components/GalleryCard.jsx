@@ -37,7 +37,14 @@ const GalleryCard = ({ containerRef, onClose }) => {
           </motion.button>
         </div>
 
-        <div className="m-5 grid grid-cols-2 gap-5">Coming soon</div>
+        <div className="m-5 grid grid-cols-2 gap-5">
+          <div className="bg-red-500 h-50 w-80">
+            <img src="here-image-will-come" alt="" />
+          </div>
+          <div className="bg-red-500 h-50 w-80">
+            <img src="here-image-will-come" alt="" />
+          </div>
+        </div>
       </motion.div>
     </>
   );
