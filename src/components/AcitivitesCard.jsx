@@ -8,6 +8,11 @@ import attached from "../images/songs/attached.png";
 import mutual from "../images/songs/mutual.png";
 import kaise from "../images/songs/kaise.png";
 import hardToRead from "../images/songs/hardToRead.png";
+import tires from "../images/webseries/tires.png";
+import wd2 from "../images/games/wd2.png";
+import rdr2 from "../images/games/rdr2.png";
+import SeriesCard from "./SeriesCard";
+import GamesCard from "./GamesCard";
 
 const AcitivitesCard = ({ containerRef, onClose }) => {
   const songs = [
@@ -62,6 +67,30 @@ const AcitivitesCard = ({ containerRef, onClose }) => {
     },
   ];
 
+  const series = [
+    {
+      title: "Tires",
+      why: "Hilarious",
+      url: "https://www.netflix.com/title/81758875",
+      image: tires,
+    },
+  ];
+
+  const games = [
+    {
+      title: "Watchdogs 2",
+      why: "Love the graffiti, assets and the story",
+      url: "https://www.ubisoft.com/en-gb/game/watch-dogs/watch-dogs-2",
+      image: wd2,
+    },
+    {
+      title: "RDR 2",
+      why: "Why not?",
+      url: "https://www.rockstargames.com/reddeadredemption2",
+      image: rdr2,
+    },
+  ];
+
   return (
     <>
       <motion.div
@@ -100,7 +129,7 @@ const AcitivitesCard = ({ containerRef, onClose }) => {
 
         <div className="m-5 flex flex-col gap-3">
           <div>
-            <h1 className="font-black">Fav. songs</h1>
+            <h1 className="font-black text-xl">Songs</h1>
             <hr />
           </div>
 
@@ -113,6 +142,44 @@ const AcitivitesCard = ({ containerRef, onClose }) => {
                   image={song.image}
                   url={song.url}
                   artist={song.artist}
+                />
+              );
+            })}
+          </div>
+
+          <div>
+            <h1 className="font-black text-xl">Web Series</h1>
+            <hr />
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            {series.map((serie, key) => {
+              return (
+                <SeriesCard
+                  id={key}
+                  title={serie.title}
+                  why={serie.why}
+                  url={serie.url}
+                  image={serie.image}
+                />
+              );
+            })}
+          </div>
+
+          <div>
+            <h1 className="font-black text-xl">Games</h1>
+            <hr />
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            {games.map((game, key) => {
+              return (
+                <GamesCard
+                  id={key}
+                  title={game.title}
+                  why={game.why}
+                  url={game.url}
+                  image={game.image}
                 />
               );
             })}
