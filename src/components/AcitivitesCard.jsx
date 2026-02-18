@@ -13,6 +13,12 @@ import wd2 from "../images/games/wd2.png";
 import rdr2 from "../images/games/rdr2.png";
 import SeriesCard from "./SeriesCard";
 import GamesCard from "./GamesCard";
+import wd2Banner from "../images/games/wd2Banner.png";
+import rdr2Banner from "../images/games/rdr2Banner.png";
+import rickroll from "../images/rickRoll.png";
+import lifeIsUnfair from "../images/lifeIsUnfair.png";
+import iGaveAllIHad from "../images/iGaveAllIHad.png";
+import helloMyBaby from "../images/helloMyBaby.png";
 
 const AcitivitesCard = ({ containerRef, onClose }) => {
   const songs = [
@@ -79,15 +85,27 @@ const AcitivitesCard = ({ containerRef, onClose }) => {
   const games = [
     {
       title: "Watchdogs 2",
-      why: "Love the graffiti, assets and the story",
-      url: "https://www.ubisoft.com/en-gb/game/watch-dogs/watch-dogs-2",
+      mainThing: "Love the graffiti, assets and the story",
       image: wd2,
+      banner: wd2Banner,
+      category: "Open World",
+      refundPolicy: "No",
+      qrCode: rickroll,
+      barCode: lifeIsUnfair,
+      timeCost: "100+ hours",
+      world: "San Francisco",
     },
     {
       title: "RDR 2",
-      why: "Why not?",
-      url: "https://www.rockstargames.com/reddeadredemption2",
+      mainThing: "Why not?",
       image: rdr2,
+      banner: rdr2Banner,
+      category: "Open world",
+      refundPolicy: "Huh",
+      qrCode: helloMyBaby,
+      barCode: iGaveAllIHad,
+      timeCost: "4 Summer vacations!",
+      world: "Fictionalised US",
     },
   ];
 
@@ -171,17 +189,9 @@ const AcitivitesCard = ({ containerRef, onClose }) => {
             <hr />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-3 w-full justify-start items-center">
             {games.map((game, key) => {
-              return (
-                <GamesCard
-                  id={key}
-                  title={game.title}
-                  why={game.why}
-                  url={game.url}
-                  image={game.image}
-                />
-              );
+              return <GamesCard id={key} {...game} />;
             })}
           </div>
         </div>
