@@ -1,17 +1,25 @@
 import { motion } from "motion/react";
-import discord from "../images/socials/discord.svg";
-import email from "../images/socials/email.svg";
-import linkedIn from "../images/socials/linkedIn.svg";
-import reddit from "../images/socials/reddit.svg";
-import spotify from "../images/socials/spotify.svg";
-import github from "../images/socials/github.png";
+import discord from "../images/socials/discord.png";
+import email from "../images/socials/email.png";
+import linkedIn from "../images/socials/linkedIn.png";
+import reddit from "../images/socials/reddit.png";
+import spotify from "../images/socials/spotify.png";
+import github from "../images/tech/github.png";
 
-const ContactCard = ({ containerRef, onClose }) => {
+const ContactCard = ({
+  containerRef,
+  onClose,
+  setActiveWindow,
+  activeWindow,
+}) => {
+  const isActive = activeWindow === "contact";
+
   return (
     <>
       <motion.div
         drag
         dragConstraints={containerRef}
+        onMouseDown={() => setActiveWindow("contact")}
         initial={{
           x: Math.random() * window.innerWidth,
           y: Math.random() * window.innerHeight,
@@ -28,7 +36,9 @@ const ContactCard = ({ containerRef, onClose }) => {
         whileDrag={{
           scale: 0.9,
         }}
-        className="bg-[#ffffffee] border-2 absolute h-65 w-80 overflow-auto flex flex-col cursor-pointer"
+        className={`bg-[#ffffffee] border-2 absolute h-65 w-80 overflow-auto flex flex-col cursor-pointer ${
+          isActive ? "z-50" : "z-10"
+        }`}
       >
         <div className="flex justify-between border-b bg-gray-400 px-3 py-1">
           <div>
@@ -92,7 +102,7 @@ const ContactCard = ({ containerRef, onClose }) => {
             />
             <img
               onClick={() => window.open("https://github.com/C0nfu5ing-5pring")}
-              className="h-15"
+              className="h-10"
               src={github}
               alt=""
             />
