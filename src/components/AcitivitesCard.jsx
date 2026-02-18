@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useState } from "react";
 import SpotifyCard from "./SpotifyCard";
 import haveItAll from "../images/songs/haveItAll.jpg";
 import hoshiyaar from "../images/songs/hoshiyaar.png";
@@ -19,57 +20,73 @@ import rickroll from "../images/rickRoll.png";
 import lifeIsUnfair from "../images/lifeIsUnfair.png";
 import iGaveAllIHad from "../images/iGaveAllIHad.png";
 import helloMyBaby from "../images/helloMyBaby.png";
+import un4 from "../images/games/un4.png";
+import un4Banner from "../images/games/un4Banner.png";
+import iAmAManOfMyFortuneAndIMustSeekMyFortune from "../images/iAmAManOfMyFortuneAndIMustSeekMyFortune.png";
+import un4Video from "../images/un4Video.png";
 
 const AcitivitesCard = ({ containerRef, onClose }) => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const years = year - 2023;
+
   const songs = [
     {
       title: "Have It All",
       artist: "CASTLE BEAT",
       image: haveItAll,
-      url: "https://open.spotify.com/track/7t7zUhP20qISNDNa1825kK?si=6f2c926c05cb4450",
+      embed: `7t7zUhP20qISNDNa1825kK`,
+      why: `In my playlist since ${years} years now`,
     },
     {
       title: "Hoshiyaar",
       artist: "Seedhe Maut, Sez on the Beat",
       image: hoshiyaar,
-      url: "https://open.spotify.com/track/45OIe9DAqIW9wbNJpQhF1P?si=1cd4183d67c747c0",
+      embed: `45OIe9DAqIW9wbNJpQhF1P`,
+      why: "Beautiful lyrics ",
     },
     {
       title: "Bond Fission",
       artist: "Reble",
       image: bondFission,
-      url: "https://open.spotify.com/track/1vQH3BXqf0Y4S4t7RSX2Cp?si=ad9e0d78d99441ed",
+      embed: `1vQH3BXqf0Y4S4t7RSX2Cp`,
+      why: "Sounds good when I am happy",
     },
     {
       title: "Don't Tell",
       artist: "Dishaan",
       image: dontTell,
-      url: "https://open.spotify.com/track/3ibIs3ijJRsQ45MOwuzZjR?si=f0b1388aeb9b419f",
+      embed: `3ibIs3ijJRsQ45MOwuzZjR`,
+      why: "You'll like it if you like indie music",
     },
     {
       title: "Attached",
       artist: "RANJ, Clifr, Issamood",
       image: attached,
-      url: "https://open.spotify.com/track/4LXP4tw0mucgLy8zeNj7lL?si=82adb8b44b9f4d52",
+      embed: `4LXP4tw0mucgLy8zeNj7lL`,
+      why: "Sounds cool to me",
     },
     {
       title: "Mutual",
       artist: "RANJ, Clifr",
       image: mutual,
-      url: "https://open.spotify.com/track/25T9KzOqSe44j3nsWuKfiM?si=b5cdf40a882343e0",
+      embed: `25T9KzOqSe44j3nsWuKfiM`,
+      why: "Nice vocals and music",
     },
     {
       title: "Kaise",
       artist: "Frappe Ash, Aman Sagar",
       image: kaise,
-      url: "https://open.spotify.com/track/7lE4hlwqJZE7Q19OGqKyXV?si=0973123f276d415e",
+      embed: `7lE4hlwqJZE7Q19OGqKyXV`,
+      why: "I like it just because it's relatable sometimes",
     },
 
     {
       title: "Hard to Read",
       artist: "Day Wave",
       image: hardToRead,
-      url: "https://open.spotify.com/track/7JpcP0YUCNy8UklFgOf4t4?si=e4808261c9084bd3",
+      embed: `7JpcP0YUCNy8UklFgOf4t4`,
+      why: "Listened this one from WatchDogs 2, loving it since then",
     },
   ];
 
@@ -107,7 +124,21 @@ const AcitivitesCard = ({ containerRef, onClose }) => {
       timeCost: "4 Summer vacations!",
       world: "Fictionalised US",
     },
+    {
+      title: "Uncharted 4",
+      mainThing: "Really awesome views",
+      image: un4,
+      banner: un4Banner,
+      category: "Story",
+      refundPolicy: "No need",
+      qrCode: un4Video,
+      barCode: iAmAManOfMyFortuneAndIMustSeekMyFortune,
+      timeCost: "More than 80 hours for sure",
+      world: "Madagascar, Scotland, Italy, Libertalia, Panama",
+    },
   ];
+
+  const [activeSong, setActiveSong] = useState(null);
 
   return (
     <>
@@ -155,11 +186,9 @@ const AcitivitesCard = ({ containerRef, onClose }) => {
             {songs.map((song, key) => {
               return (
                 <SpotifyCard
-                  id={key}
-                  title={song.title}
-                  image={song.image}
-                  url={song.url}
-                  artist={song.artist}
+                  song={song}
+                  activeSong={activeSong}
+                  setActiveSong={setActiveSong}
                 />
               );
             })}
@@ -189,7 +218,7 @@ const AcitivitesCard = ({ containerRef, onClose }) => {
             <hr />
           </div>
 
-          <div className="grid grid-cols-2 gap-3 w-full justify-start items-center">
+          <div className="grid grid-cols-3">
             {games.map((game, key) => {
               return <GamesCard id={key} {...game} />;
             })}

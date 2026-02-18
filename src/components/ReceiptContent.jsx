@@ -24,7 +24,7 @@ const ReceiptContent = ({
 
         <div className="flex justify-between">
           <h1 className="font-black text-xl">World</h1>
-          <h1 className="triangle">{world}</h1>
+          <h1 className="triangle text-end">{world}</h1>
         </div>
 
         <div className="flex justify-between">
@@ -55,7 +55,7 @@ const ReceiptContent = ({
         </div>
 
         <div>
-          <img src={banner} className="h-19 w-full" alt="" />
+          <img src={banner} className="h-19 w-full object-cover" alt="" />
         </div>
       </div>
     </>

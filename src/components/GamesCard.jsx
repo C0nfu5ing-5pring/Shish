@@ -23,12 +23,14 @@ const GamesCard = ({
     <>
       <motion.div
         layoutId={layoutKey}
-        className="border w-40 px-2 py-1 cursor-pointer"
+        className="border flex flex-col gap-1 w-40 cursor-pointer"
         onClick={() => setOpen(true)}
         whileHover={{ scale: 1.05, rotate: -2 }}
       >
         <img src={image} alt={title} className="h-40 w-full object-cover" />
-        <h1 className="text-lg font-black">{title}</h1>
+        <div>
+          <h1 className="text-lg px-2 font-black">{title}</h1>
+        </div>
       </motion.div>
 
       {createPortal(
