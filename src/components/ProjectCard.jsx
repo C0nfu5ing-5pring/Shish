@@ -3,8 +3,9 @@ import IndividualProjectCard from "./IndividualProjectCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Card = ({ containerRef, onClose }) => {
+const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
   const [repos, setRepos] = useState([]);
+  const isActive = activeWindow === "project";
 
   useEffect(() => {
     axios
@@ -22,9 +23,7 @@ const Card = ({ containerRef, onClose }) => {
       <motion.div
         drag
         dragConstraints={containerRef}
-        whileTap={{
-          zIndex: 9,
-        }}
+        onMouseDown={() => setActiveWindow("project")}
         initial={{
           x: Math.random() * window.innerWidth,
           y: Math.random() * window.innerHeight,
@@ -41,7 +40,9 @@ const Card = ({ containerRef, onClose }) => {
         whileDrag={{
           scale: 0.9,
         }}
-        className="bg-[#ffffffee] border-2 absolute h-125 overflow-auto flex flex-col cursor-pointer"
+        className={`bg-[#ffffffee] border-2 absolute h-125 overflow-auto flex flex-col cursor-pointer ${
+          isActive ? "z-50" : "z-10"
+        }`}
       >
         <div className="flex justify-between border-b bg-gray-400 px-3 py-1">
           <div>

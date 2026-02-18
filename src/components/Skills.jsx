@@ -11,12 +11,14 @@ import python from "../images/tech/python.png";
 import github from "../images/tech/github.png";
 import vscode from "../images/tech/vscode.png";
 
-const Skills = ({ containerRef, onClose }) => {
+const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
+  const isActive = activeWindow === "skills";
   return (
     <>
       <motion.div
         drag
         dragConstraints={containerRef}
+        onMouseDown={() => setActiveWindow("skills")}
         initial={{
           x: Math.random() * window.innerWidth,
           y: Math.random() * window.innerHeight,
@@ -33,7 +35,9 @@ const Skills = ({ containerRef, onClose }) => {
         whileDrag={{
           scale: 0.9,
         }}
-        className="bg-[#ffffffee] border-2 absolute h-125 overflow-auto flex flex-col cursor-pointer"
+        className={`bg-[#ffffffee] border-2 absolute h-125 overflow-auto flex flex-col cursor-pointer ${
+          isActive ? "z-50" : "z-10"
+        }`}
       >
         <div className="flex justify-between border-b bg-gray-400 px-3 py-1">
           <div>

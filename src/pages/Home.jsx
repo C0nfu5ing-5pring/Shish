@@ -15,6 +15,7 @@ const Home = () => {
   const [galleryCardVisible, setGalleryCardVisible] = useState(true);
   const [contactCardVisible, setContactCardVisible] = useState(true);
   const [skillsCardVisible, setSkillsCardVisible] = useState(true);
+  const [activeWindow, setActiveWindow] = useState(null);
 
   const onProjectCardClose = () => {
     setProjectCardVisible(false);
@@ -63,6 +64,8 @@ const Home = () => {
             <ProjectCard
               containerRef={containerRef}
               onClose={onProjectCardClose}
+              setActiveWindow={setActiveWindow}
+              activeWindow={activeWindow}
             />
           )}
         </AnimatePresence>
@@ -72,6 +75,8 @@ const Home = () => {
             <AcitivitesCard
               containerRef={containerRef}
               onClose={onActivitiesCardClose}
+              setActiveWindow={setActiveWindow}
+              activeWindow={activeWindow}
             />
           )}
         </AnimatePresence>
@@ -81,6 +86,8 @@ const Home = () => {
             <GalleryCard
               containerRef={containerRef}
               onClose={onGalleryCardClose}
+              setActiveWindow={setActiveWindow}
+              activeWindow={activeWindow}
             />
           )}
         </AnimatePresence>
@@ -90,13 +97,20 @@ const Home = () => {
             <ContactCard
               containerRef={containerRef}
               onClose={onContactCardClose}
+              setActiveWindow={setActiveWindow}
+              activeWindow={activeWindow}
             />
           )}
         </AnimatePresence>
 
         <AnimatePresence>
           {skillsCardVisible && (
-            <Skills containerRef={containerRef} onClose={onSkilslCardClose} />
+            <Skills
+              containerRef={containerRef}
+              onClose={onSkilslCardClose}
+              setActiveWindow={setActiveWindow}
+              activeWindow={activeWindow}
+            />
           )}
         </AnimatePresence>
       </div>

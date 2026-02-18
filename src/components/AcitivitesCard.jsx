@@ -25,7 +25,12 @@ import un4Banner from "../images/games/un4Banner.png";
 import iAmAManOfMyFortuneAndIMustSeekMyFortune from "../images/iAmAManOfMyFortuneAndIMustSeekMyFortune.png";
 import un4Video from "../images/un4Video.png";
 
-const AcitivitesCard = ({ containerRef, onClose }) => {
+const AcitivitesCard = ({
+  containerRef,
+  onClose,
+  activeWindow,
+  setActiveWindow,
+}) => {
   const date = new Date();
   const year = date.getFullYear();
   const years = year - 2023;
@@ -139,12 +144,14 @@ const AcitivitesCard = ({ containerRef, onClose }) => {
   ];
 
   const [activeSong, setActiveSong] = useState(null);
+  const isActive = activeWindow === "activities";
 
   return (
     <>
       <motion.div
         drag
         dragConstraints={containerRef}
+        onMouseDown={() => setActiveWindow("activities")}
         initial={{
           x: Math.random() * window.innerWidth,
           y: Math.random() * window.innerHeight,
@@ -161,7 +168,9 @@ const AcitivitesCard = ({ containerRef, onClose }) => {
         whileDrag={{
           scale: 0.9,
         }}
-        className="bg-[#ffffffee] border-2 absolute h-125 overflow-auto flex flex-col cursor-pointer"
+        className={`bg-[#ffffffee] border-2 absolute h-125 overflow-auto flex flex-col cursor-pointer ${
+          isActive ? "z-50" : "z-10"
+        }`}
       >
         <div className="flex justify-between border-b bg-gray-400 px-3 py-1">
           <div>
