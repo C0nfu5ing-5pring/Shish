@@ -36,7 +36,7 @@ const ContactCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[#ffffffee] border-2 absolute h-65 w-80 overflow-auto flex flex-col cursor-pointer ${
+        className={`bg-[#ffffffee] border-2 absolute w-80 overflow-auto flex flex-col cursor-pointer ${
           isActive ? "z-50" : "z-10"
         }`}
       >
@@ -53,37 +53,37 @@ const ContactCard = ({
           </motion.button>
         </div>
 
-        <div className="m-5 flex flex-col gap-3 ">
-          <div className="grid grid-cols-3 gap-3 px-3">
+        <div className="flex flex-col gap-3 ">
+          <div className="grid grid-cols-3 gap-3 px-3 py-5">
             <img
               onClick={() => window.open("mailto:shishfruitwala29@gmail.com")}
-              className="h-10"
+              className="h-10 hover:rotate-12"
               src={email}
-              alt=""
+              alt="Email Logo"
             />
             <img
               onClick={() =>
                 window.open("https://in.linkedin.com/in/shish-frutwala")
               }
-              className="h-10"
+              className="h-10 hover:rotate-12"
               src={linkedIn}
-              alt=""
+              alt="LinkedIn Logo"
             />
             <img
               onClick={() =>
                 window.open("https://www.reddit.com/user/c0nfu5ing-5pring/")
               }
-              className="h-10"
+              className="h-10 hover:rotate-12"
               src={reddit}
-              alt=""
+              alt="Reddit Logo"
             />
             <img
               onClick={() =>
                 window.open("https://discord.com/users/1077969916793192589")
               }
-              className="h-10"
+              className="h-10 hover:rotate-12"
               src={discord}
-              alt=""
+              alt="Discord Logo"
             />
             <img
               onClick={() =>
@@ -91,15 +91,15 @@ const ContactCard = ({
                   "https://open.spotify.com/user/31pigmldap7vo7kvfgbu3bmsempe?si=271da90e47f84a7d",
                 )
               }
-              className="h-10"
+              className="h-10 hover:rotate-12"
               src={spotify}
-              alt=""
+              alt="Spotify Logo"
             />
             <img
               onClick={() => window.open("https://github.com/C0nfu5ing-5pring")}
-              className="h-10"
+              className="h-10 hover:rotate-12"
               src={github}
-              alt=""
+              alt="Github Logo"
             />
           </div>
         </div>
