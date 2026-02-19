@@ -10,6 +10,7 @@ import gsap from "../images/tech/gsap.png";
 import python from "../images/tech/python.png";
 import github from "../images/tech/github.png";
 import vscode from "../images/tech/vscode.png";
+import graphQL from "../images/tech/graphQL.png";
 
 const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
   const isActive = activeWindow === "skills";
@@ -83,6 +84,11 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
             className="h-20 w-25 object-fit"
             src={vscode}
             alt="VS code logo"
+          />
+          <img
+            className="h-20 w-25 object-fit"
+            src={graphQL}
+            alt="GraphQL logo"
           />
         </div>
       </motion.div>
