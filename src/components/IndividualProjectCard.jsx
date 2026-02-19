@@ -1,32 +1,23 @@
 import { motion } from "motion/react";
 import arrow from "../images/arrow.png";
+import folder1 from "../images/icons/folder1.png";
+import folder2 from "../images/icons/folder2.png";
 
-const IndividualProjectCard = ({ title, desc, url }) => {
+const IndividualProjectCard = ({ title, url }) => {
   return (
-    <motion.div
-      whileHover={{
-        scale: 1.15,
-      }}
-      transition={{
-        duration: 0.2,
-      }}
-      className="w-70 flex flex-col gap-2 border-2 bg-white p-2 relative"
-    >
-      <h1 className="font-bold">{title}</h1>
-      <p className="text-xs">{desc}</p>
+    <div className="flex flex-col">
       <motion.img
-        animate={{
-          rotate: [60, -30],
+        src={folder1}
+        alt="Folder Icon"
+        whileHover={{
+          rotate: -3,
+          scale: 1.05,
         }}
-        transition={{
-          duration: 1,
-          repeat: Infinity,
-        }}
+        className="w-40 h-20"
         onClick={() => window.open(url, "_blank")}
-        className="absolute bottom-1 right-2 w-5 h-5 rounded-full active:scale-90 transition-all"
-        src={arrow}
-      ></motion.img>
-    </motion.div>
+      />
+      <p className="text-center text-sm">{title}</p>
+    </div>
   );
 };
 

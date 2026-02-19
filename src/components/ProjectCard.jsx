@@ -10,11 +10,12 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
   useEffect(() => {
     const query = `{
       user(login: "C0nfu5ing-5pring"){
-        pinnedItems(first: 5){
+        pinnedItems(first: 6){
           nodes{
             ... on Repository{
-              url
+              homepageUrl
               name
+              url
             }
           }
         }
@@ -33,6 +34,7 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
       )
       .then((res) => {
         setRepos(res.data.data.user.pinnedItems.nodes);
+        console.log(repos);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -81,7 +83,7 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
             return (
               <IndividualProjectCard
                 key={repo.id}
-                url={repo.homepage || repo.html_url}
+                url={repo.homepageUrl || repo.url}
                 title={repo.name}
                 desc={repo.description || "No description"}
               />
