@@ -47,11 +47,13 @@ const Home = () => {
     <>
       <div
         ref={containerRef}
-        className="p-15 flex flex-col h-screen overflow-hidden"
+        className="p-15 flex flex-col h-screen overflow-hidden justify-center items-center"
       >
-        <div className="flex flex-col justify-center items-center gap-20">
-          <h1 className="text-8xl text-center font-black">Shish</h1>
-          <p className="w-[65%] text-4xl text-right">
+        <div className="flex flex-col justify-center items-center gap-10 md:gap-15 lg:gap-20">
+          <h1 className="text-5xl md:text-6xl lg:text-8xl text-center font-black">
+            Shish
+          </h1>
+          <p className="w-full md:w-[55%] lg:w-[65%] text-base md:text-xl leading-5 lg:leading-8 lg:text-2xl text-center">
             I am a <span className="triangle">{year - 2008}</span> year old from
             India, I like to make useful, brutalist and minimalist websites. I
             am currently in grade XI studying PCB and Computer Science. After
@@ -89,7 +91,6 @@ const Home = () => {
             />
           )}
         </AnimatePresence>
-
         <AnimatePresence>
           {galleryCardVisible && (
             <GalleryCard

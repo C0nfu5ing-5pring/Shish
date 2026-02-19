@@ -71,16 +71,16 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
           isActive ? "z-50" : "z-10"
         }`}
       >
-        <div className="flex justify-between border-b bg-gray-400 px-3 py-1">
+        <div className="flex justify-between items-center border-b bg-gray-400 px-2 lg:px-3 py-1">
           <div>
-            <h1 className="font-black text-xl">Projects</h1>
+            <h1 className="font-black text-base lg:text-xl">Projects</h1>
           </div>
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
             className="bg-red-600 border-2 font-black py-1 px-2 cursor-pointer"
           >
-            <p>X</p>
+            <p className="text-xs lg:text-base">X</p>
           </motion.button>
         </div>
 

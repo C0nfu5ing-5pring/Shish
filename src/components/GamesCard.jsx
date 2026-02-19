@@ -23,13 +23,19 @@ const GamesCard = ({
     <>
       <motion.div
         layoutId={layoutKey}
-        className="border flex flex-col gap-1 w-40 cursor-pointer"
+        className="border flex flex-col gap-1 lg:w-40 cursor-pointer"
         onClick={() => setOpen(true)}
         whileHover={{ scale: 1.05, rotate: -2 }}
       >
-        <img src={image} alt={title} className="h-40 w-full object-cover" />
+        <img
+          src={image}
+          alt={title}
+          className="h-35 md:h-40 w-full object-cover"
+        />
         <div>
-          <h1 className="text-lg px-2 font-black">{title}</h1>
+          <h1 className="text-sm lg:text-lg px-2 font-black text-center triangle">
+            {title}
+          </h1>
         </div>
       </motion.div>
 
@@ -38,7 +44,7 @@ const GamesCard = ({
           {open && (
             <motion.div
               layoutId={layoutKey}
-              className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[25%] h-[80%] bg-white border-3 z-10 p-10 overflow-y-auto`}
+              className={`fixed top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 w-[70%] md:w-[30%] h-[65%] lg:h-[70%] z-[999] bg-white border-3 p-10 overflow-y-auto`}
               onClick={() => setOpen(false)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -54,11 +60,13 @@ const GamesCard = ({
               <div className="relative" onClick={(e) => e.stopPropagation()}>
                 <div className="w-full flex flex-col justify-center items-center gap-10">
                   <div className="flex flex-col items-center">
-                    <h1 className=" text-5xl font-bold text-center cucu">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center cucu">
                       Shish
                     </h1>
                     <p className="text-xs">Life's Good</p>
-                    <p className="text-lg triangle">(+91) XXXXXXX983</p>
+                    <p className="text-base lg:text-lg triangle">
+                      (+91) XXXXXXX109
+                    </p>
                   </div>
 
                   <ReceiptContent

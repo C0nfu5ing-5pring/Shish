@@ -43,20 +43,20 @@ const ContactCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[#ffffffee] border-2 absolute w-80 overflow-auto flex flex-col cursor-pointer ${
+        className={`bg-[#ffffffee] border-2 absolute w-60 lg:w-80 overflow-auto flex flex-col cursor-pointer ${
           isActive ? "z-50" : "z-10"
         }`}
       >
-        <div className="flex justify-between border-b bg-gray-400 px-3 py-1">
+        <div className="flex justify-between items-center border-b bg-gray-400 px-3 py-1">
           <div>
-            <h1 className="font-black text-xl">Contact</h1>
+            <h1 className="font-black text-lg lg:text-xl">Contact</h1>
           </div>
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
             className="bg-red-600 border-2 font-black py-1 px-2 cursor-pointer"
           >
-            <p>X</p>
+            <p className="text-xs lg:text-base">X</p>
           </motion.button>
         </div>
 

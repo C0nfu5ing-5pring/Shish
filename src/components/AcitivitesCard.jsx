@@ -107,7 +107,7 @@ const AcitivitesCard = ({
   const games = [
     {
       title: "Watchdogs 2",
-      mainThing: "Love the graffiti, assets and the story",
+      mainThing: "Love the graffiti and assets",
       image: wd2,
       banner: wd2Banner,
       category: "Open World",
@@ -175,33 +175,34 @@ const AcitivitesCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[#ffffffee] border-2 absolute h-125 overflow-auto flex flex-col cursor-pointer ${
+        className={`bg-[#ffffffee] border-2 absolute h-120 w-[70vw] md:w-140 overflow-auto flex flex-col cursor-pointer ${
           isActive ? "z-50" : "z-10"
         }`}
       >
-        <div className="flex justify-between border-b bg-gray-400 px-3 py-1">
+        <div className="flex justify-between border-b items-center bg-gray-400 px-2 lg:px-3 py-1">
           <div>
-            <h1 className="font-black text-xl">Favourites</h1>
+            <h1 className="font-black text-base lg:text-xl">Favourites</h1>
           </div>
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
             className="bg-red-600 border-2 font-black py-1 px-2 cursor-pointer"
           >
-            <p>X</p>
+            <p className="text-xs lg:text-base">X</p>
           </motion.button>
         </div>
 
-        <div className="m-5 flex flex-col gap-3">
+        <div className="px-2 lg:px-3 py-2 flex flex-col gap-3">
           <div>
-            <h1 className="font-black text-xl">Songs</h1>
+            <h1 className="font-black text-lg lg:text-xl">Songs</h1>
             <hr />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-3">
             {songs.map((song, key) => {
               return (
                 <SpotifyCard
+                  id={key}
                   song={song}
                   activeSong={activeSong}
                   setActiveSong={setActiveSong}
@@ -211,7 +212,7 @@ const AcitivitesCard = ({
           </div>
 
           <div>
-            <h1 className="font-black text-xl">Web Series</h1>
+            <h1 className="font-black text-lg lg:text-xl">Web Series</h1>
             <hr />
           </div>
 
@@ -230,11 +231,11 @@ const AcitivitesCard = ({
           </div>
 
           <div>
-            <h1 className="font-black text-xl">Games</h1>
+            <h1 className="font-black text-lg lg:text-xl">Games</h1>
             <hr />
           </div>
 
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {games.map((game, key) => {
               return <GamesCard id={key} {...game} />;
             })}

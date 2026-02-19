@@ -11,34 +11,34 @@ const ReceiptContent = ({
 }) => {
   return (
     <>
-      <div className="flex flex-col w-full gap-5">
+      <div className="flex flex-col w-full lg:gap-2">
         <div className="flex justify-between">
-          <h1 className="font-black text-xl">Product</h1>
-          <h1 className="triangle">{product}</h1>
+          <h1 className="font-black text-base lg:text-xl">Product</h1>
+          <h1 className="triangle text-end">{product}</h1>
         </div>
 
         <div className="flex justify-between">
-          <h1 className="font-black text-xl">Category</h1>
-          <h1 className="triangle">{category}</h1>
+          <h1 className="font-black text-base lg:text-xl">Category</h1>
+          <h1 className="triangle text-end">{category}</h1>
         </div>
 
         <div className="flex justify-between">
-          <h1 className="font-black text-xl">World</h1>
+          <h1 className="font-black text-base lg:text-xl">World</h1>
           <h1 className="triangle text-end">{world}</h1>
         </div>
 
         <div className="flex justify-between">
-          <h1 className="font-black text-xl mr-15">Why?</h1>
+          <h1 className="font-black text-base lg:text-xl mr-15">Why?</h1>
           <h1 className="triangle text-end">{mainThing}</h1>
         </div>
 
         <div className="flex justify-between">
-          <h1 className="font-black text-xl">Time cost</h1>
-          <h1 className="triangle">{timeCost}</h1>
+          <h1 className="font-black text-base lg:text-xl">Time cost</h1>
+          <h1 className="triangle text-end">{timeCost}</h1>
         </div>
 
         <div className="flex justify-between">
-          <h1 className="font-black text-xl">Refund policy</h1>
+          <h1 className="font-black text-base lg:text-xl">Refund policy</h1>
           <h1 className="triangle">{refundPolicy}</h1>
         </div>
 
@@ -49,7 +49,7 @@ const ReceiptContent = ({
         <div className="flex gap-5">
           <img className="w-20 h-20" src={qrCode} />
 
-          <div className="flex items-center text-end">
+          <div className="flex text-xs lg:text-base items-center text-end">
             <h1>THANK YOU FOR SHOPPING WITH US</h1>
           </div>
         </div>

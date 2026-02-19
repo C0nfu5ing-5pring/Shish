@@ -44,14 +44,14 @@ const StatusCard = ({
       >
         <div className="flex justify-between border-b bg-gray-400 px-3 py-1">
           <div>
-            <h1 className="font-black text-xl">Status</h1>
+            <h1 className="font-black text-lg lg:text-xl">Status</h1>
           </div>
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
             className="bg-red-600 border-2 font-black py-1 px-2 cursor-pointer"
           >
-            <p>X</p>
+            <p className="text-xs lg:text-base">X</p>
           </motion.button>
         </div>
 
@@ -73,20 +73,6 @@ const StatusCard = ({
             <h1>Studying for annual exams</h1>
           </div>
         </div>
-
-        {/* 
-        <li>
-          <h1>Available for collaboration</h1>
-        </li>
-        <li>
-          <h1>Working on SaralRates</h1>
-        </li>
-        <li>
-          <h1>Flavortown</h1>
-        </li>
-        <li>
-          <h1>Studying for Annual Exam</h1>
-        </li> */}
       </motion.div>
     </>
   );
