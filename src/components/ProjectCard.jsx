@@ -8,14 +8,33 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
   const isActive = activeWindow === "project";
 
   useEffect(() => {
+    const query = `{
+      user(login: "C0nfu5ing-5pring"){
+        pinnedItems(first: 5){
+          nodes{
+            ... on Repository{
+              url
+              name
+            }
+          }
+        }
+      }
+    }`;
+
     axios
-      .get("https://api.github.com/users/C0nfu5ing-5pring/repos?sort=updated")
+      .post(
+        "https://api.github.com/graphql",
+        { query },
+        {
+          headers: {
+            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+          },
+        },
+      )
       .then((res) => {
-        setRepos(res.data);
+        setRepos(res.data.data.user.pinnedItems.nodes);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   }, []);
 
   return (
@@ -40,7 +59,7 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[#ffffffee] border-2 absolute h-125 overflow-auto flex flex-col cursor-pointer ${
+        className={`bg-[#ffffffee] border-2 absolute overflow-auto flex flex-col cursor-pointer ${
           isActive ? "z-50" : "z-10"
         }`}
       >
