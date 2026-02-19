@@ -54,11 +54,6 @@ const ContactCard = ({
         </div>
 
         <div className="m-5 flex flex-col gap-3 ">
-          <div>
-            <h1 className="font-black">Socials</h1>
-            <hr />
-          </div>
-
           <div className="grid grid-cols-3 gap-3 px-3">
             <img
               onClick={() => window.open("mailto:shishfruitwala29@gmail.com")}
@@ -106,26 +101,6 @@ const ContactCard = ({
               src={github}
               alt=""
             />
-          </div>
-
-          <div>
-            <h1 className="font-black">Status</h1>
-            <hr />
-          </div>
-
-          <div>
-            <li>
-              <h1>Available for collaboration</h1>
-            </li>
-            <li>
-              <h1>Working on SaralRates</h1>
-            </li>
-            <li>
-              <h1>Flavortown</h1>
-            </li>
-            <li>
-              <h1>Studying for Annual Exam</h1>
-            </li>
           </div>
         </div>
       </motion.div>

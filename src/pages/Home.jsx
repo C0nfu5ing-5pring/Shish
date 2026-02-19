@@ -5,6 +5,7 @@ import AcitivitesCard from "../components/AcitivitesCard";
 import GalleryCard from "../components/GalleryCard";
 import ContactCard from "../components/ContactCard";
 import Skills from "../components/Skills";
+import StatusCard from "../components/StatusCard";
 
 const Home = () => {
   const date = new Date();
@@ -15,6 +16,7 @@ const Home = () => {
   const [galleryCardVisible, setGalleryCardVisible] = useState(true);
   const [contactCardVisible, setContactCardVisible] = useState(true);
   const [skillsCardVisible, setSkillsCardVisible] = useState(true);
+  const [statusCardVisible, setStatusCardVisible] = useState(true);
   const [activeWindow, setActiveWindow] = useState(null);
 
   const onProjectCardClose = () => {
@@ -35,6 +37,10 @@ const Home = () => {
 
   const onSkilslCardClose = () => {
     setSkillsCardVisible(false);
+  };
+
+  const onStatuslCardClose = () => {
+    setStatusCardVisible(false);
   };
 
   return (
@@ -108,6 +114,17 @@ const Home = () => {
             <Skills
               containerRef={containerRef}
               onClose={onSkilslCardClose}
+              setActiveWindow={setActiveWindow}
+              activeWindow={activeWindow}
+            />
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {statusCardVisible && (
+            <StatusCard
+              containerRef={containerRef}
+              onClose={onStatuslCardClose}
               setActiveWindow={setActiveWindow}
               activeWindow={activeWindow}
             />
