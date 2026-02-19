@@ -34,10 +34,16 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
       )
       .then((res) => {
         setRepos(res.data.data.user.pinnedItems.nodes);
-        console.log(repos);
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const CARD_WIDTH = 400;
+  const CARD_HEIGHT = 300;
+  const [initialPos] = useState(() => ({
+    x: Math.random() * (window.innerWidth - CARD_WIDTH),
+    y: Math.random() * (window.innerHeight - CARD_HEIGHT),
+  }));
 
   return (
     <>
@@ -46,8 +52,8 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("project")}
         initial={{
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
+          x: initialPos.x,
+          y: initialPos.y,
           opacity: 0,
         }}
         animate={{

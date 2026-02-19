@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import bbpsHackathon from "../images/gallery/bbpsHackathonImage.jpeg";
 import bbpsHackathonImage2 from "../images/gallery/bbpsHackathonImage02.jpeg";
+import { useState } from "react";
 
 const GalleryCard = ({
   containerRef,
@@ -9,6 +10,12 @@ const GalleryCard = ({
   setActiveWindow,
 }) => {
   const isActive = activeWindow === "gallery";
+  const CARD_WIDTH = 400;
+  const CARD_HEIGHT = 300;
+  const [initialPos] = useState(() => ({
+    x: Math.random() * (window.innerWidth - CARD_WIDTH),
+    y: Math.random() * (window.innerHeight - CARD_HEIGHT),
+  }));
 
   return (
     <>
@@ -17,8 +24,8 @@ const GalleryCard = ({
         onMouseDown={() => setActiveWindow("gallery")}
         dragConstraints={containerRef}
         initial={{
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
+          x: initialPos.x,
+          y: initialPos.y,
           opacity: 0,
         }}
         animate={{

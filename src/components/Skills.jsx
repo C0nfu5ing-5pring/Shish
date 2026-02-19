@@ -11,9 +11,17 @@ import python from "../images/tech/python.png";
 import github from "../images/tech/github.png";
 import vscode from "../images/tech/vscode.png";
 import graphQL from "../images/tech/graphQL.png";
+import { useState } from "react";
 
 const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
   const isActive = activeWindow === "skills";
+
+  const CARD_WIDTH = 400;
+  const CARD_HEIGHT = 300;
+  const [initialPos] = useState(() => ({
+    x: Math.random() * (window.innerWidth - CARD_WIDTH),
+    y: Math.random() * (window.innerHeight - CARD_HEIGHT),
+  }));
   return (
     <>
       <motion.div
@@ -21,8 +29,8 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("skills")}
         initial={{
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
+          x: initialPos.x,
+          y: initialPos.y,
           opacity: 0,
         }}
         animate={{

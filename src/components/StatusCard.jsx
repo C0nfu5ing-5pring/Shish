@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import dot from "../images/dot.png";
+import { useState } from "react";
 
 const StatusCard = ({
   containerRef,
@@ -8,6 +9,12 @@ const StatusCard = ({
   activeWindow,
 }) => {
   const isActive = activeWindow === "status";
+  const CARD_WIDTH = 400;
+  const CARD_HEIGHT = 300;
+  const [initialPos] = useState(() => ({
+    x: Math.random() * (window.innerWidth - CARD_WIDTH),
+    y: Math.random() * (window.innerHeight - CARD_HEIGHT),
+  }));
 
   return (
     <>
@@ -16,8 +23,8 @@ const StatusCard = ({
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("status")}
         initial={{
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
+          x: initialPos.x,
+          y: initialPos.y,
           opacity: 0,
         }}
         animate={{

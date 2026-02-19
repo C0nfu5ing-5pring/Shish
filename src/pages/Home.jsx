@@ -45,7 +45,10 @@ const Home = () => {
 
   return (
     <>
-      <div ref={containerRef} className="p-15 flex flex-col h-screen">
+      <div
+        ref={containerRef}
+        className="p-15 flex flex-col h-screen overflow-hidden"
+      >
         <div className="flex flex-col justify-center items-center gap-20">
           <h1 className="text-8xl text-center font-black">Shish</h1>
           <p className="w-[65%] text-4xl text-right">

@@ -5,6 +5,7 @@ import linkedIn from "../images/socials/linkedIn.png";
 import reddit from "../images/socials/reddit.png";
 import spotify from "../images/socials/spotify.png";
 import github from "../images/tech/github.png";
+import { useState } from "react";
 
 const ContactCard = ({
   containerRef,
@@ -13,6 +14,12 @@ const ContactCard = ({
   activeWindow,
 }) => {
   const isActive = activeWindow === "contact";
+  const CARD_WIDTH = 400;
+  const CARD_HEIGHT = 300;
+  const [initialPos] = useState(() => ({
+    x: Math.random() * (window.innerWidth - CARD_WIDTH),
+    y: Math.random() * (window.innerHeight - CARD_HEIGHT),
+  }));
 
   return (
     <>
@@ -21,8 +28,8 @@ const ContactCard = ({
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("contact")}
         initial={{
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
+          x: initialPos.x,
+          y: initialPos.y,
           opacity: 0,
         }}
         animate={{

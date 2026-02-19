@@ -145,6 +145,13 @@ const AcitivitesCard = ({
 
   const [activeSong, setActiveSong] = useState(null);
   const isActive = activeWindow === "activities";
+  const CARD_WIDTH = 400;
+  const CARD_HEIGHT = 300;
+
+  const [initialPos] = useState(() => ({
+    x: Math.random() * (window.innerWidth - CARD_WIDTH),
+    y: Math.random() * (window.innerHeight - CARD_HEIGHT),
+  }));
 
   return (
     <>
@@ -153,8 +160,8 @@ const AcitivitesCard = ({
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("activities")}
         initial={{
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
+          x: initialPos.x,
+          y: initialPos.y,
           opacity: 0,
         }}
         animate={{
