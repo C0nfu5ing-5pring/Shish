@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import SpotifyCard from "./SpotifyCard";
 import haveItAll from "../images/songs/haveItAll.jpg";
 import hoshiyaar from "../images/songs/hoshiyaar.png";
@@ -24,6 +24,19 @@ import un4 from "../images/games/un4.png";
 import un4Banner from "../images/games/un4Banner.png";
 import iAmAManOfMyFortuneAndIMustSeekMyFortune from "../images/iAmAManOfMyFortuneAndIMustSeekMyFortune.png";
 import un4Video from "../images/un4Video.png";
+
+const getRandomPosition = (container, card) => {
+  const c = container.getBoundingClientRect();
+  const b = card.getBoundingClientRect();
+
+  const maxX = c.width - b.width;
+  const maxY = c.height - b.height;
+
+  return {
+    x: Math.random() * Math.max(0, maxX),
+    y: Math.random() * Math.max(0, maxY),
+  };
+};
 
 const AcitivitesCard = ({
   containerRef,
@@ -145,23 +158,24 @@ const AcitivitesCard = ({
 
   const [activeSong, setActiveSong] = useState(null);
   const isActive = activeWindow === "activities";
-  const CARD_WIDTH = 400;
-  const CARD_HEIGHT = 300;
+  const cardRef = useRef(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
 
-  const [initialPos] = useState(() => ({
-    x: Math.random() * (window.innerWidth - CARD_WIDTH),
-    y: Math.random() * (window.innerHeight - CARD_HEIGHT),
-  }));
+  useLayoutEffect(() => {
+    if (!containerRef.current || !cardRef.current) return;
+    setPos(getRandomPosition(containerRef.current, cardRef.current));
+  }, []);
 
   return (
     <>
       <motion.div
+        ref={cardRef}
         drag
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("activities")}
         initial={{
-          x: initialPos.x,
-          y: initialPos.y,
+          x: pos.x,
+          y: pos.y,
           opacity: 0,
         }}
         animate={{
@@ -175,7 +189,7 @@ const AcitivitesCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[#ffffffee] border-2 absolute h-120 w-[70vw] md:w-140 overflow-auto flex flex-col cursor-pointer ${
+        className={`bg-[#ffffffee] border-2 absolute top-50 left-30 h-120 w-[70vw] md:w-140 overflow-auto flex flex-col cursor-pointer ${
           isActive ? "z-50" : "z-10"
         }`}
       >

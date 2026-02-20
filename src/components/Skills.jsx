@@ -11,122 +11,91 @@ import python from "../images/tech/python.png";
 import github from "../images/tech/github.png";
 import vscode from "../images/tech/vscode.png";
 import graphQL from "../images/tech/graphQL.png";
-import { useState } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
+
+const getRandomPosition = (container, card) => {
+  const c = container.getBoundingClientRect();
+  const b = card.getBoundingClientRect();
+
+  const maxX = c.width - b.width;
+  const maxY = c.height - b.height;
+
+  return {
+    x: Math.random() * Math.max(0, maxX),
+    y: Math.random() * Math.max(0, maxY),
+  };
+};
 
 const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
   const isActive = activeWindow === "skills";
+  const cardRef = useRef(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
 
-  const CARD_WIDTH = 400;
-  const CARD_HEIGHT = 300;
-  const [initialPos] = useState(() => ({
-    x: Math.random() * (window.innerWidth - CARD_WIDTH),
-    y: Math.random() * (window.innerHeight - CARD_HEIGHT),
-  }));
+  useLayoutEffect(() => {
+    if (!containerRef.current || !cardRef.current) return;
+    setPos(getRandomPosition(containerRef.current, cardRef.current));
+  }, []);
+
+  const top = Math.floor(Math.random() * 30) + 1;
+  const left = Math.floor(Math.random() * 3) + 1;
+
   return (
-    <>
-      <motion.div
-        drag
-        dragConstraints={containerRef}
-        onMouseDown={() => setActiveWindow("skills")}
-        initial={{
-          x: initialPos.x,
-          y: initialPos.y,
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        exit={{
-          opacity: 0,
-          scale: 0.5,
-          y: 10,
-        }}
-        whileDrag={{
-          scale: 0.9,
-        }}
-        className={`bg-[#ffffffee] border-2 absolute overflow-auto flex flex-col cursor-pointer ${
-          isActive ? "z-50" : "z-10"
-        }`}
-      >
-        <div className="flex justify-between items-center border-b bg-gray-400 px-3 py-1">
-          <div>
-            <h1 className="font-black text-lg lg:text-xl">
-              Technologies I use
-            </h1>
-          </div>
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            onClick={onClose}
-            className="bg-red-600 border-2 font-black py-1 px-2 cursor-pointer"
-          >
-            <p className="text-xs lg:text-base">X</p>
-          </motion.button>
-        </div>
+    <motion.div
+      ref={cardRef}
+      drag
+      dragConstraints={containerRef}
+      onMouseDown={() => setActiveWindow("skills")}
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        x: pos.x,
+        y: pos.y,
+      }}
+      exit={{ opacity: 0, scale: 0.5, y: 10 }}
+      whileDrag={{ scale: 0.9 }}
+      className={`bg-[#ffffffee] border-2 absolute top-${top} left-${left} overflow-auto flex flex-col cursor-pointer ${
+        isActive ? "z-50" : "z-10"
+      }`}
+    >
+      <div className="flex justify-between items-center border-b bg-gray-400 px-3 py-1">
+        <h1 className="font-black text-lg lg:text-xl">Technologies I use</h1>
 
-        <div className="m-5 grid grid-cols-3 gap-5">
-          <img
-            className="lg:h-20 lg:w-25 w-20 h-15 object-fit"
-            src={html}
-            alt="HTML logo"
-          />
-          <img
-            className="lg:h-20 lg:w-25 w-20 h-15 object-fit"
-            src={css}
-            alt="CSS logo"
-          />
-          <img
-            className="lg:h-20 lg:w-25 w-20 h-15 object-fit"
-            src={tailwindcss}
-            alt="TailiwindCSS logo"
-          />
-          <img
-            className="lg:h-20 lg:w-25 w-20 h-15 object-fit"
-            src={sass}
-            alt="SASS logo"
-          />
-          <img
-            className="lg:h-20 lg:w-25 w-20 h-15 object-fit"
-            src={framermotion}
-            alt="FramerMotion logo"
-          />
-          <img
-            className="lg:h-20 lg:w-25 w-20 h-15 object-fit"
-            src={gsap}
-            alt="GSAP logo"
-          />
-          <img
-            className="lg:h-20 lg:w-25 w-20 h-15 object-fit"
-            src={js}
-            alt="JS logo"
-          />
-          <img
-            className="lg:h-20 lg:w-25 w-20 h-15 object-fit"
-            src={react}
-            alt="React logo"
-          />
-          <img
-            className="lg:h-20 lg:w-25 w-20 h-15 object-fit"
-            src={python}
-            alt="Python logo"
-          />
-          <img
-            className="lg:h-20 lg:w-25 w-20 h-15 object-fit"
-            src={github}
-            alt="Github logo"
-          />
-          <img
-            className="lg:h-20 lg:w-25 w-20 h-15 object-fit"
-            src={vscode}
-            alt="VS code logo"
-          />
-          <img
-            className="lg:h-20 lg:w-25 w-20 h-15 object-fit"
-            src={graphQL}
-            alt="GraphQL logo"
-          />
-        </div>
-      </motion.div>
-    </>
+        <motion.button
+          whileTap={{ scale: 0.9 }}
+          onClick={onClose}
+          className="bg-red-600 border-2 font-black py-1 px-2 cursor-pointer"
+        >
+          <p className="text-xs lg:text-base">X</p>
+        </motion.button>
+      </div>
+
+      <div className="m-5 grid grid-cols-3 gap-5">
+        <img className="lg:h-20 lg:w-25 w-20 h-15" src={html} alt="HTML" />
+        <img className="lg:h-20 lg:w-25 w-20 h-15" src={css} alt="CSS" />
+        <img
+          className="lg:h-20 lg:w-25 w-20 h-15"
+          src={tailwindcss}
+          alt="Tailwind"
+        />
+        <img className="lg:h-20 lg:w-25 w-20 h-15" src={sass} alt="SASS" />
+        <img
+          className="lg:h-20 lg:w-25 w-20 h-15"
+          src={framermotion}
+          alt="Framer Motion"
+        />
+        <img className="lg:h-20 lg:w-25 w-20 h-15" src={gsap} alt="GSAP" />
+        <img className="lg:h-20 lg:w-25 w-20 h-15" src={js} alt="JS" />
+        <img className="lg:h-20 lg:w-25 w-20 h-15" src={react} alt="React" />
+        <img className="lg:h-20 lg:w-25 w-20 h-15" src={python} alt="Python" />
+        <img className="lg:h-20 lg:w-25 w-20 h-15" src={github} alt="Github" />
+        <img className="lg:h-20 lg:w-25 w-20 h-15" src={vscode} alt="VS Code" />
+        <img
+          className="lg:h-20 lg:w-25 w-20 h-15"
+          src={graphQL}
+          alt="GraphQL"
+        />
+      </div>
+    </motion.div>
   );
 };
 

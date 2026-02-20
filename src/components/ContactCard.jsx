@@ -5,7 +5,20 @@ import linkedIn from "../images/socials/linkedIn.png";
 import reddit from "../images/socials/reddit.png";
 import spotify from "../images/socials/spotify.png";
 import github from "../images/tech/github.png";
-import { useState } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
+
+const getRandomPosition = (container, card) => {
+  const c = container.getBoundingClientRect();
+  const b = card.getBoundingClientRect();
+
+  const maxX = c.width - b.width;
+  const maxY = c.height - b.height;
+
+  return {
+    x: Math.random() * Math.max(0, maxX),
+    y: Math.random() * Math.max(0, maxY),
+  };
+};
 
 const ContactCard = ({
   containerRef,
@@ -14,25 +27,27 @@ const ContactCard = ({
   activeWindow,
 }) => {
   const isActive = activeWindow === "contact";
-  const CARD_WIDTH = 400;
-  const CARD_HEIGHT = 300;
-  const [initialPos] = useState(() => ({
-    x: Math.random() * (window.innerWidth - CARD_WIDTH),
-    y: Math.random() * (window.innerHeight - CARD_HEIGHT),
-  }));
+  const cardRef = useRef(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  useLayoutEffect(() => {
+    if (!containerRef.current || !cardRef.current) return;
+    setPos(getRandomPosition(containerRef.current, cardRef.current));
+  }, []);
 
   return (
     <>
       <motion.div
+        ref={cardRef}
         drag
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("contact")}
         initial={{
-          x: initialPos.x,
-          y: initialPos.y,
           opacity: 0,
         }}
         animate={{
+          x: pos.x,
+          y: pos.y,
           opacity: 1,
         }}
         exit={{
@@ -43,7 +58,7 @@ const ContactCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[#ffffffee] border-2 absolute w-60 lg:w-80 overflow-auto flex flex-col cursor-pointer ${
+        className={`bg-[#ffffffee] border-2 absolute top-10 left-10 w-60 lg:w-80 overflow-auto flex flex-col cursor-pointer ${
           isActive ? "z-50" : "z-10"
         }`}
       >

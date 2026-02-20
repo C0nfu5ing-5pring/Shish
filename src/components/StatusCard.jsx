@@ -9,8 +9,8 @@ const StatusCard = ({
   activeWindow,
 }) => {
   const isActive = activeWindow === "status";
-  const CARD_WIDTH = 400;
-  const CARD_HEIGHT = 300;
+  const CARD_WIDTH = 200;
+  const CARD_HEIGHT = 100;
   const [initialPos] = useState(() => ({
     x: Math.random() * (window.innerWidth - CARD_WIDTH),
     y: Math.random() * (window.innerHeight - CARD_HEIGHT),
@@ -38,7 +38,7 @@ const StatusCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[#ffffffee] border-2 absolute w-80 overflow-auto flex flex-col cursor-pointer ${
+        className={`bg-[#ffffffee] border-2 absolute top-10 left-0 w-80 overflow-auto flex flex-col cursor-pointer ${
           isActive ? "z-50" : "z-10"
         }`}
       >
