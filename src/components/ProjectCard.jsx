@@ -99,10 +99,10 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
         </div>
 
         <div className="m-5 grid grid-cols-2 gap-5">
-          {repos.map((repo) => {
+          {repos.map((repo, index) => {
             return (
               <IndividualProjectCard
-                key={repo.id}
+                key={index}
                 url={repo.homepageUrl || repo.url}
                 title={repo.name}
                 desc={repo.description || "No description"}
