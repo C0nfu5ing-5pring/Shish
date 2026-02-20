@@ -1,11 +1,31 @@
 import { motion } from "motion/react";
 import IndividualProjectCard from "./IndividualProjectCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect, useRef } from "react";
 import axios from "axios";
+
+const getRandomPosition = (container, card) => {
+  const c = container.getBoundingClientRect();
+  const b = card.getBoundingClientRect();
+
+  const maxX = c.width - b.width;
+  const maxY = c.height - b.height;
+
+  return {
+    x: Math.random() * Math.max(0, maxX),
+    y: Math.random() * Math.max(0, maxY),
+  };
+};
 
 const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
   const [repos, setRepos] = useState([]);
   const isActive = activeWindow === "project";
+  const cardRef = useRef(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  useLayoutEffect(() => {
+    if (!containerRef.current || !cardRef.current) return;
+    setPos(getRandomPosition(containerRef.current, cardRef.current));
+  }, []);
 
   useEffect(() => {
     const query = `{
@@ -38,25 +58,19 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
       .catch((err) => console.log(err));
   }, []);
 
-  const CARD_WIDTH = 400;
-  const CARD_HEIGHT = 300;
-  const [initialPos] = useState(() => ({
-    x: Math.random() * (window.innerWidth - CARD_WIDTH),
-    y: Math.random() * (window.innerHeight - CARD_HEIGHT),
-  }));
-
   return (
     <>
       <motion.div
+        ref={cardRef}
         drag
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("project")}
         initial={{
-          x: initialPos.x,
-          y: initialPos.y,
           opacity: 0,
         }}
         animate={{
+          x: pos.x,
+          y: pos.y,
           opacity: 1,
         }}
         exit={{
@@ -67,7 +81,7 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[#ffffffee] border-2 absolute overflow-auto flex flex-col cursor-pointer ${
+        className={`bg-[#ffffffee] border-2 absolute bottom-30 right-20 overflow-auto flex flex-col cursor-pointer ${
           isActive ? "z-50" : "z-10"
         }`}
       >
