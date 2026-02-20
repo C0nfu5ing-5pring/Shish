@@ -28,30 +28,8 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
   }, []);
 
   useEffect(() => {
-    const query = `{
-      user(login: "C0nfu5ing-5pring"){
-        pinnedItems(first: 6){
-          nodes{
-            ... on Repository{
-              homepageUrl
-              name
-              url
-            }
-          }
-        }
-      }
-    }`;
-
     axios
-      .post(
-        "https://api.github.com/graphql",
-        { query },
-        {
-          headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
-          },
-        },
-      )
+      .get("/api/github")
       .then((res) => {
         setRepos(res.data.data.user.pinnedItems.nodes);
       })
