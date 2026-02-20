@@ -213,10 +213,10 @@ const AcitivitesCard = ({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-3">
-            {songs.map((song, key) => {
+            {songs.map((song, index) => {
               return (
                 <SpotifyCard
-                  id={key}
+                  key={song.embed || index}
                   song={song}
                   activeSong={activeSong}
                   setActiveSong={setActiveSong}
@@ -231,10 +231,10 @@ const AcitivitesCard = ({
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            {series.map((serie, key) => {
+            {series.map((serie, index) => {
               return (
                 <SeriesCard
-                  id={key}
+                  key={index}
                   title={serie.title}
                   why={serie.why}
                   url={serie.url}
@@ -250,8 +250,8 @@ const AcitivitesCard = ({
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {games.map((game, key) => {
-              return <GamesCard id={key} {...game} />;
+            {games.map((game, index) => {
+              return <GamesCard key={index} {...game} />;
             })}
           </div>
         </div>

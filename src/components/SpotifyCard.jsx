@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
 import { createPortal } from "react-dom";
 
 const SpotifyCard = ({ song, activeSong, setActiveSong }) => {
