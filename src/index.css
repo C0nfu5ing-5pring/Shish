@@ -34,9 +34,9 @@ body {
   font-family: cucu;
 }
 
-body::selection {
-  background-color: #000;
-  color: white;
+* {
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .triangle {

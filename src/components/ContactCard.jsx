@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useDragControls } from "motion/react";
 import discord from "../images/socials/discord.png";
 import email from "../images/socials/email.png";
 import linkedIn from "../images/socials/linkedIn.png";
@@ -35,11 +35,15 @@ const ContactCard = ({
     setPos(getRandomPosition(containerRef.current, cardRef.current));
   }, []);
 
+  const dragControls = useDragControls();
+
   return (
     <>
       <motion.div
         ref={cardRef}
         drag
+        dragControls={dragControls}
+        dragListener={false}
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("contact")}
         initial={{
@@ -62,7 +66,10 @@ const ContactCard = ({
           isActive ? "z-50" : "z-10"
         }`}
       >
-        <div className="flex justify-between items-center border-b bg-gray-400 px-3 py-1">
+        <div
+          onPointerDown={(e) => dragControls.start(e)}
+          className="flex justify-between items-center border-b bg-gray-400 px-3 py-1 touch-none"
+        >
           <div>
             <h1 className="font-black text-lg lg:text-xl">Contact</h1>
           </div>

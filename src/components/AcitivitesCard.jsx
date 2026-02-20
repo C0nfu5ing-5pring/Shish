@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useDragControls } from "motion/react";
 import { useState, useRef, useLayoutEffect } from "react";
 import SpotifyCard from "./SpotifyCard";
 import haveItAll from "../images/songs/haveItAll.jpg";
@@ -166,11 +166,15 @@ const AcitivitesCard = ({
     setPos(getRandomPosition(containerRef.current, cardRef.current));
   }, []);
 
+  const dragControls = useDragControls();
+
   return (
     <>
       <motion.div
         ref={cardRef}
         drag
+        dragListener={false}
+        dragControls={dragControls}
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("activities")}
         initial={{
@@ -193,7 +197,10 @@ const AcitivitesCard = ({
           isActive ? "z-50" : "z-10"
         }`}
       >
-        <div className="flex justify-between border-b items-center bg-gray-400 px-2 lg:px-3 py-1">
+        <div
+          onPointerDown={(e) => dragControls.start(e)}
+          className="flex justify-between border-b items-center bg-gray-400 px-2 lg:px-3 py-1 touch-none"
+        >
           <div>
             <h1 className="font-black text-base lg:text-xl">Favourites</h1>
           </div>

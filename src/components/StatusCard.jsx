@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useDragControls } from "motion/react";
 import dot from "../images/dot.png";
 import { useState } from "react";
 
@@ -16,10 +16,14 @@ const StatusCard = ({
     y: Math.random() * (window.innerHeight - CARD_HEIGHT),
   }));
 
+  const dragControls = useDragControls();
+
   return (
     <>
       <motion.div
         drag
+        dragControls={dragControls}
+        dragListener={false}
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("status")}
         initial={{
@@ -42,7 +46,10 @@ const StatusCard = ({
           isActive ? "z-50" : "z-10"
         }`}
       >
-        <div className="flex justify-between border-b bg-gray-400 px-3 py-1">
+        <div
+          onPointerDown={(e) => dragControls.start(e)}
+          className="flex justify-between border-b bg-gray-400 px-3 py-1"
+        >
           <div>
             <h1 className="font-black text-lg lg:text-xl">Status</h1>
           </div>

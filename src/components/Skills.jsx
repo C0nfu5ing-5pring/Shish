@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useDragControls } from "motion/react";
 import html from "../images/tech/html.png";
 import css from "../images/tech/css.png";
 import tailwindcss from "../images/tech/tailwindcss.png";
@@ -39,10 +39,14 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
   const top = Math.floor(Math.random() * 30) + 1;
   const left = Math.floor(Math.random() * 3) + 1;
 
+  const dragControls = useDragControls();
+
   return (
     <motion.div
       ref={cardRef}
       drag
+      dragControls={dragControls}
+      dragListener={false}
       dragConstraints={containerRef}
       onMouseDown={() => setActiveWindow("skills")}
       initial={{ opacity: 0 }}
@@ -57,7 +61,10 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
         isActive ? "z-50" : "z-10"
       }`}
     >
-      <div className="flex justify-between items-center border-b bg-gray-400 px-3 py-1">
+      <div
+        onPointerDown={(e) => dragControls.start(e)}
+        className="flex justify-between items-center border-b bg-gray-400 px-3 py-1"
+      >
         <h1 className="font-black text-lg lg:text-xl">Technologies I use</h1>
 
         <motion.button

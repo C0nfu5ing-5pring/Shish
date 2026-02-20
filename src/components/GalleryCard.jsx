@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useDragControls } from "motion/react";
 import bbpsHackathon from "../images/gallery/bbpsHackathonImage.jpeg";
 import bbpsHackathonImage2 from "../images/gallery/bbpsHackathonImage02.jpeg";
 import { useState, useRef, useLayoutEffect } from "react";
@@ -34,10 +34,14 @@ const GalleryCard = ({
   const top = Math.floor(Math.random() * 20) + 1;
   const right = Math.floor(Math.random() * 50) + 1;
 
+  const dragControls = useDragControls();
+
   return (
     <motion.div
       ref={cardRef}
       drag
+      dragControls={dragControls}
+      dragListener={false}
       dragConstraints={containerRef}
       onMouseDown={() => setActiveWindow("gallery")}
       initial={{
@@ -62,7 +66,10 @@ const GalleryCard = ({
         isActive ? "z-50" : "z-10"
       }`}
     >
-      <div className="flex justify-between items-center border-b bg-gray-400 px-3 py-1">
+      <div
+        onPointerDown={(e) => dragControls.start(e)}
+        className="flex justify-between items-center border-b bg-gray-400 px-3 py-1"
+      >
         <h1 className="font-black text-lg lg:text-xl">Gallery</h1>
 
         <motion.button

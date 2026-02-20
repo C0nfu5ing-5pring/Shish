@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useDragControls } from "motion/react";
 import IndividualProjectCard from "./IndividualProjectCard";
 import { useEffect, useState, useLayoutEffect, useRef } from "react";
 import axios from "axios";
@@ -58,11 +58,15 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
       .catch((err) => console.log(err));
   }, []);
 
+  const dragControls = useDragControls();
+
   return (
     <>
       <motion.div
         ref={cardRef}
         drag
+        dragControls={dragControls}
+        dragListener={false}
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("project")}
         initial={{
@@ -85,7 +89,10 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
           isActive ? "z-50" : "z-10"
         }`}
       >
-        <div className="flex justify-between items-center border-b bg-gray-400 px-2 lg:px-3 py-1">
+        <div
+          onPointerDown={(e) => dragControls.start(e)}
+          className="flex justify-between items-center border-b bg-gray-400 px-2 lg:px-3 py-1"
+        >
           <div>
             <h1 className="font-black text-base lg:text-xl">Projects</h1>
           </div>
