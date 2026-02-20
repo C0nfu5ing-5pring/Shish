@@ -68,7 +68,7 @@ const GalleryCard = ({
     >
       <div
         onPointerDown={(e) => dragControls.start(e)}
-        className="flex justify-between items-center border-b bg-gray-400 px-3 py-1"
+        className="flex justify-between items-center border-b bg-gray-400 px-3 py-1 touch-none"
       >
         <h1 className="font-black text-lg lg:text-xl">Gallery</h1>
 

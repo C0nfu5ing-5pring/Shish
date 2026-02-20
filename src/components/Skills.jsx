@@ -63,7 +63,7 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
     >
       <div
         onPointerDown={(e) => dragControls.start(e)}
-        className="flex justify-between items-center border-b bg-gray-400 px-3 py-1"
+        className="flex justify-between items-center border-b bg-gray-400 px-3 py-1 touch-none"
       >
         <h1 className="font-black text-lg lg:text-xl">Technologies I use</h1>
 

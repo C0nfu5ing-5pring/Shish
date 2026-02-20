@@ -48,7 +48,7 @@ const StatusCard = ({
       >
         <div
           onPointerDown={(e) => dragControls.start(e)}
-          className="flex justify-between border-b bg-gray-400 px-3 py-1"
+          className="flex justify-between border-b bg-gray-400 px-3 py-1 touch-none"
         >
           <div>
             <h1 className="font-black text-lg lg:text-xl">Status</h1>

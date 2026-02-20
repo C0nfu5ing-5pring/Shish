@@ -91,7 +91,7 @@ const Card = ({ containerRef, onClose, setActiveWindow, activeWindow }) => {
       >
         <div
           onPointerDown={(e) => dragControls.start(e)}
-          className="flex justify-between items-center border-b bg-gray-400 px-2 lg:px-3 py-1"
+          className="flex justify-between items-center border-b bg-gray-400 px-2 lg:px-3 py-1 touch-none"
         >
           <div>
             <h1 className="font-black text-base lg:text-xl">Projects</h1>
