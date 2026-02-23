@@ -1,5 +1,37 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg: rgb(var(--bg) / <alpha-value>);
+  --color-text: rgb(var(--text) / <alpha-value>);
+  --color-card: rgb(var(--card) / <alpha-value>);
+  --color-border: rgb(var(--border) / <alpha-value>);
+  --color-header-bg: rgb(var(--header-bg) / <alpha-value>);
+}
+
+:root {
+  --bg: #fff;
+  --text: #000;
+  --card: #fff;
+  --border: #000;
+  --header-bg: #99a1ae;
+}
+
+.dark {
+  --bg: #111827;
+  --text: #f3f4f6;
+  --card: #1f2937;
+  --border: #374151;
+  --header-bg: #374151;
+}
+
+.brutal {
+  --bg: #7a003c;
+  --text: #00ff00;
+  --card: #b3005e;
+  --border: #000000;
+  --header-bg: #c52a87;
+}
+
 @font-face {
   font-family: ugh;
   src: url(fonts/ugh.ttf);

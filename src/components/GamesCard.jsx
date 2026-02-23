@@ -1,4 +1,3 @@
-// import arrow from "../images/arrow.png";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { createPortal } from "react-dom";
@@ -23,7 +22,7 @@ const GamesCard = ({
     <>
       <motion.div
         layoutId={layoutKey}
-        className="border flex flex-col gap-1 lg:w-40 cursor-pointer"
+        className="border-2 border-[var(--border)] flex flex-col gap-1 lg:w-40 cursor-pointer"
         onClick={() => setOpen(true)}
         whileHover={{ scale: 1.05, rotate: -2 }}
       >
@@ -44,7 +43,7 @@ const GamesCard = ({
           {open && (
             <motion.div
               layoutId={layoutKey}
-              className={`fixed top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 w-[70%] md:w-[30%] h-[65%] lg:h-[70%] z-[999] bg-white border-3 p-10 overflow-y-auto`}
+              className={`fixed top-1/2 left-1/2 border-[var(--border)]  -translate-x-1/2 -translate-y-1/2 w-[70%] md:w-[30%] h-[65%] lg:h-[70%] z-[999] bg-[var(--bg)] border-3 p-10 overflow-y-auto`}
               onClick={() => setOpen(false)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -53,13 +52,13 @@ const GamesCard = ({
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setOpen(false)}
-                className="bg-red-600 border-2 font-black py-1 px-2 cursor-pointer absolute top-1 right-1"
+                className="bg-red-600 border-2 border-black font-black py-1 px-2 cursor-pointer absolute top-1 right-1"
               >
                 <p>X</p>
               </motion.button>
               <div className="relative" onClick={(e) => e.stopPropagation()}>
-                <div className="w-full flex flex-col justify-center items-center gap-10">
-                  <div className="flex flex-col items-center">
+                <div className="w-full flex flex-col justify-center items-center gap-10 text-[var(--text)] bg-[var(--bg)]">
+                  <div className="flex flex-col items-center ">
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center cucu">
                       Shish
                     </h1>

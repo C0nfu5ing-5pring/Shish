@@ -11,7 +11,7 @@ const ReceiptContent = ({
 }) => {
   return (
     <>
-      <div className="flex flex-col w-full lg:gap-2">
+      <div className="flex flex-col w-full lg:gap-2 text-[var(--text)] bg-[var(--bg)]">
         <div className="flex justify-between">
           <h1 className="font-black text-base lg:text-xl">Product</h1>
           <h1 className="triangle text-end">{product}</h1>
@@ -55,7 +55,7 @@ const ReceiptContent = ({
         </div>
 
         <div>
-          <img src={banner} className="h-19 w-full object-cover" alt="" />
+          <img src={banner} className="h-19 w-full object-cover" />
         </div>
       </div>
     </>

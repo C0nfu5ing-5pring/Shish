@@ -7,6 +7,10 @@ import ContactCard from "../components/ContactCard";
 import Skills from "../components/Skills";
 import StatusCard from "../components/StatusCard";
 import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+import settingsDark from "../images/icons/settings-dark.png";
+import settingsLight from "../images/icons/settings-light.png";
+import settingsBrutalist from "../images/icons/settings-brutalist.png";
+import Settings from "../components/Settings";
 
 const Home = () => {
   const date = new Date();
@@ -19,6 +23,7 @@ const Home = () => {
   const [skillsCardVisible, setSkillsCardVisible] = useState(true);
   const [statusCardVisible, setStatusCardVisible] = useState(true);
   const [activeWindow, setActiveWindow] = useState(null);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const onProjectCardClose = () => {
     setProjectCardVisible(false);
@@ -52,16 +57,41 @@ const Home = () => {
     }, 3000);
   }, []);
 
+  const [theme, setThemeState] = useState("light");
+
+  const setTheme = (theme) => {
+    document.body.classList.remove("dark", "brutal");
+
+    if (theme !== "light") {
+      document.body.classList.add(theme);
+    }
+
+    localStorage.setItem("theme", theme);
+    setThemeState(theme);
+  };
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+
+    document.body.classList.remove("dark", "brutal");
+
+    if (savedTheme !== "light") {
+      document.body.classList.add(savedTheme);
+    }
+
+    setThemeState(savedTheme);
+  }, []);
+
   return (
     <>
       <AnimatePresence>
         {loading && (
           <>
             <RoughNotationGroup show={true}>
-              <div className="flex flex-col h-screen gap-1 font-black text-black justify-center items-center">
+              <div className="flex flex-col h-screen gap-1 font-black text-[var(--text)] bg-[var(--bg)] justify-center items-center">
                 <RoughNotation
                   type="circle"
-                  color="#000"
+                  classList="text-[var(--text)]s"
                   strokeWidth={2}
                   padding={13}
                 >
@@ -79,7 +109,7 @@ const Home = () => {
                   </div>
                 </RoughNotation>
 
-                <RoughNotation type="underline" color="#000">
+                <RoughNotation type="underline" className="text-[var(--text)]">
                   <div className="flex text-base mg:text-xl lg:text-2xl">
                     {["L", "o", "a", "d", "i", "n", "g"].map((letter, i) => (
                       <motion.span
@@ -102,14 +132,39 @@ const Home = () => {
       {!loading && (
         <div
           ref={containerRef}
-          className="p-15 flex flex-col h-screen justify-center items-center relative overflow-hidden"
+          className="p-15 flex flex-col h-screen justify-center items-center relative overflow-hidden bg-[var(--bg)] text-[var(--text)] "
         >
+          <div
+            onClick={() => setSettingsOpen(!settingsOpen)}
+            className="absolute top-5 right-5 lg:top-10 lg:right-20"
+          >
+            <motion.img
+              whileHover={{
+                rotate: 45,
+              }}
+              whileTap={{
+                scale: 0.9,
+              }}
+              className="w-10 cursor-pointer"
+              src={
+                theme === "dark"
+                  ? settingsLight
+                  : theme === "brutal"
+                    ? settingsBrutalist
+                    : settingsDark
+              }
+              alt="Settings Icon"
+            />
+          </div>
+
+          {settingsOpen ? <Settings setTheme={setTheme} /> : <div></div>}
+
           <div className="flex flex-col justify-center items-center gap-10 md:gap-15 lg:gap-20">
             <h1 className="text-5xl md:text-6xl lg:text-8xl text-center font-black">
               Shish
             </h1>
             <p className="w-full md:w-[55%] lg:w-[65%] text-base md:text-xl leading-5 lg:leading-8 lg:text-2xl text-center">
-              I am a <span className="triangle">{year - 2008}</span> year old
+              I am a <span className="triangle">{year - 2008}</span> year young
               from India, I like to make useful, brutalist and minimalist
               websites. I am currently in grade XI studying PCB and Computer
               Science. After school I spend most of my time learning more about
@@ -125,7 +180,6 @@ const Home = () => {
               DON'T LIKE ANYTHING WHICH IS MAINSTREAM.
             </p>
           </div>
-
           <AnimatePresence>
             {projectCardVisible && (
               <ProjectCard

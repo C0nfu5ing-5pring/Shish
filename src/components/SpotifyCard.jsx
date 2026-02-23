@@ -9,7 +9,7 @@ const SpotifyCard = ({ song, activeSong, setActiveSong }) => {
   return (
     <>
       <motion.div
-        className="border w-full lg:w-60 flex gap-5 items-center px-2 py-1 relative"
+        className="border-2 border-[var(--border)] w-full lg:w-60 flex gap-5 items-center px-2 py-1 relative"
         whileHover={{
           scale: 1.05,
           rotate: 3,
@@ -19,7 +19,7 @@ const SpotifyCard = ({ song, activeSong, setActiveSong }) => {
         <div id="left">
           <img
             src={image}
-            className=" w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 rounded-md object-cover"
+            className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 rounded-md object-cover"
             alt={title}
           />
         </div>
@@ -35,7 +35,7 @@ const SpotifyCard = ({ song, activeSong, setActiveSong }) => {
           {isOpen && (
             <motion.div
               layoutId={layoutKey}
-              className="fixed top-1/2 left-1/2 -translate-x-1/2 z-[999] -translate-y-1/2 w-[75%] md:w-[30%] lg:w-[25%] h-[30%] lg:h-[35%] lg:pt-10 bg-white border-3 px-3 lg:px-10 flex flex-col gap-0 justify-center overflow-y-auto"
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 z-[999] -translate-y-1/2 w-[75%] md:w-[30%] lg:w-[25%] h-[30%] lg:h-[35%] lg:pt-10 bg-[var(--bg)] border-3 px-3 lg:px-10 flex flex-col gap-0 justify-center overflow-y-auto"
               onClick={() => setActiveSong(null)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -56,7 +56,7 @@ const SpotifyCard = ({ song, activeSong, setActiveSong }) => {
                   loading="lazy"
                   className="rounded-xl h-20 lg:h-38"
                 />
-                <div className="text-center">{why}</div>
+                <div className="text-center text-[var(--text)]">{why}</div>
               </div>
             </motion.div>
           )}

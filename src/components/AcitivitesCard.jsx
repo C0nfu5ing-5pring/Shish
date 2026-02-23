@@ -193,13 +193,13 @@ const AcitivitesCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[#ffffffee] border-2 absolute top-50 left-30 h-120 w-[70vw] md:w-140 overflow-auto flex flex-col cursor-pointer ${
+        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-50 left-30 h-120 w-[70vw] md:w-140 overflow-auto flex flex-col cursor-pointer ${
           isActive ? "z-50" : "z-10"
         }`}
       >
         <div
           onPointerDown={(e) => dragControls.start(e)}
-          className="flex justify-between border-b items-center bg-gray-400 px-2 lg:px-3 py-1 touch-none"
+          className="flex justify-between border-b border-[var(--border)] items-center bg-[var(--header-bg)] px-2 lg:px-3 py-1 touch-none"
         >
           <div>
             <h1 className="font-black text-base lg:text-xl">Favourites</h1>
@@ -207,16 +207,16 @@ const AcitivitesCard = ({
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
-            className="bg-red-600 border-2 font-black py-1 px-2 cursor-pointer"
+            className="bg-red-600 border-2 border-black font-black py-1 px-2 cursor-pointer"
           >
-            <p className="text-xs lg:text-base">X</p>
+            <p className="text-xs lg:text-base text-black">X</p>
           </motion.button>
         </div>
 
         <div className="px-2 lg:px-3 py-2 flex flex-col gap-3">
           <div>
             <h1 className="font-black text-lg lg:text-xl">Songs</h1>
-            <hr />
+            <hr className="border-[var(--border)]" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-3">
@@ -234,7 +234,7 @@ const AcitivitesCard = ({
 
           <div>
             <h1 className="font-black text-lg lg:text-xl">Web Series</h1>
-            <hr />
+            <hr className="border-[var(--border)]" />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
@@ -253,7 +253,7 @@ const AcitivitesCard = ({
 
           <div>
             <h1 className="font-black text-lg lg:text-xl">Games</h1>
-            <hr />
+            <hr className="border-[var(--border)]" />
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">

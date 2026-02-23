@@ -5,7 +5,7 @@ const SeriesCard = ({ why, url, title, image }) => {
   return (
     <>
       <motion.div
-        className="border w-30 flex gap-5 items-center px-2 py-1 relative"
+        className="border-2 border-[var(--border)] w-30 flex gap-5 items-center px-2 py-1 relative"
         whileHover={{
           scale: 1.05,
           rotate: -2,
