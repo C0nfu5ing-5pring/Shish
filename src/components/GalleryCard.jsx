@@ -31,9 +31,6 @@ const GalleryCard = ({
     setPos(getRandomPosition(containerRef.current, cardRef.current));
   }, []);
 
-  const top = Math.floor(Math.random() * 20) + 1;
-  const right = Math.floor(Math.random() * 50) + 1;
-
   const dragControls = useDragControls();
 
   return (
@@ -62,7 +59,7 @@ const GalleryCard = ({
       whileDrag={{
         scale: 0.9,
       }}
-      className={`bg-[#ffffffee] border-2 absolute top-${top} right-${right} w-[75%] md:w-[35%] lg:w-[25%] overflow-auto flex flex-col cursor-pointer ${
+      className={`bg-[#ffffffee] border-2 absolute top-30 right-30 w-[75%] md:w-[35%] lg:w-[25%] overflow-auto flex flex-col cursor-pointer ${
         isActive ? "z-50" : "z-10"
       }`}
     >
