@@ -193,7 +193,7 @@ const AcitivitesCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-50 left-30 h-120 w-[70vw] md:w-140 overflow-auto flex flex-col cursor-pointer ${
+        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-50 left-30 h-120 w-[70vw] md:w-140 overflow-auto flex flex-col ${
           isActive ? "z-50" : "z-10"
         }`}
       >
@@ -207,7 +207,8 @@ const AcitivitesCard = ({
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
-            className="bg-red-600 border-2 border-black font-black py-1 px-2 cursor-pointer"
+            className="bg-red-600 border-2 border-black font-black py-1 px-2"
+            data-cursor="pointer"
           >
             <p className="text-xs lg:text-base text-black">X</p>
           </motion.button>

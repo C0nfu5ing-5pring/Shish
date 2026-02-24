@@ -4,7 +4,10 @@ import folder2 from "../images/icons/folder2.png";
 
 const IndividualProjectCard = ({ title, url }) => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div
+      className="flex flex-col justify-center items-center"
+      data-cursor="pointer"
+    >
       <motion.img
         src={folder1 || folder2}
         alt="Folder Icon"

@@ -15,6 +15,7 @@ const SpotifyCard = ({ song, activeSong, setActiveSong }) => {
           rotate: 3,
         }}
         onClick={() => setActiveSong(song)}
+        data-cursor="pointer"
       >
         <div id="left">
           <img
@@ -30,35 +31,40 @@ const SpotifyCard = ({ song, activeSong, setActiveSong }) => {
           </div>
         </div>
       </motion.div>
+
       {createPortal(
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              layoutId={layoutKey}
-              className="fixed top-1/2 left-1/2 -translate-x-1/2 z-[999] -translate-y-1/2 w-[75%] md:w-[30%] lg:w-[25%] h-[30%] lg:h-[35%] lg:pt-10 bg-[var(--bg)] border-3 px-3 lg:px-10 flex flex-col gap-0 justify-center overflow-y-auto"
-              onClick={() => setActiveSong(null)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <motion.button
-                whileTap={{ scale: 0.9 }}
-                onClick={() => setActiveSong(null)}
-                className="bg-red-600 border-2 font-black py-1 px-2 cursor-pointer absolute top-1 right-1"
+            <>
+              <motion.div
+                layoutId={layoutKey}
+                className="fixed top-1/2 left-1/2 -translate-x-1/2 z-[999] -translate-y-1/2 w-[75%] md:w-[30%] lg:w-[25%] h-[30%] lg:h-[35%] lg:pt-10 bg-[var(--bg)] border-3 px-3 lg:px-10 flex flex-col gap-0 justify-center overflow-y-auto"
+                onClick={(e) => e.stopPropagation()}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
               >
-                <p>X</p>
-              </motion.button>
+                <motion.button
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setActiveSong(null)}
+                  className="bg-red-600 border-2 font-black py-1 px-2 absolute top-1 right-1"
+                  data-cursor="pointer"
+                >
+                  <p>X</p>
+                </motion.button>
 
-              <div className="flex flex-col gap-2 md:gap-5">
-                <iframe
-                  src={`https://open.spotify.com/embed/track/${embed}`}
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                  className="rounded-xl h-20 lg:h-38"
-                />
-                <div className="text-center text-[var(--text)]">{why}</div>
-              </div>
-            </motion.div>
+                <div className="flex flex-col gap-2 md:gap-5">
+                  <iframe
+                    src={`https://open.spotify.com/embed/track/${embed}`}
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    className="rounded-xl h-20 lg:h-38 w-full"
+                    data-cursor="pointer"
+                  />
+                  <div className="text-center text-[var(--text)]">{why}</div>
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>,
         document.body,

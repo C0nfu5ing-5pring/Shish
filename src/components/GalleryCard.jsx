@@ -59,7 +59,7 @@ const GalleryCard = ({
       whileDrag={{
         scale: 0.9,
       }}
-      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-30 right-30 w-[75%] md:w-[35%] lg:w-[25%] overflow-auto flex flex-col cursor-pointer ${
+      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-30 right-30 w-[75%] md:w-[35%] lg:w-[25%] overflow-auto flex flex-col ${
         isActive ? "z-50" : "z-10"
       }`}
     >
@@ -72,7 +72,8 @@ const GalleryCard = ({
         <motion.button
           whileTap={{ scale: 0.9 }}
           onClick={onClose}
-          className="bg-red-600 border-2 border-black font-black py-1 px-2 cursor-pointer"
+          className="bg-red-600 border-2 border-black font-black py-1 px-2"
+          data-cursor="pointer"
         >
           <p className="text-xs lg:text-base text-black">X</p>
         </motion.button>
@@ -84,6 +85,7 @@ const GalleryCard = ({
             className="w-50"
             src={bbpsHackathon}
             alt="BBPS Hackathon 2024 - Most Innovative Project Award"
+            data-cursor="pointer"
           />
         </div>
 
@@ -92,6 +94,7 @@ const GalleryCard = ({
             className="w-50"
             src={bbpsHackathonImage2}
             alt="BBPS Hackathon 2024 - Felicitation"
+            data-cursor="pointer"
           />
         </div>
       </div>

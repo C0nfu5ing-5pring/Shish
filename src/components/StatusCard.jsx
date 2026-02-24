@@ -1,5 +1,4 @@
 import { motion, useDragControls } from "motion/react";
-import dot from "../images/dot.png";
 import { useState } from "react";
 
 const StatusCard = ({
@@ -42,7 +41,7 @@ const StatusCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-10 left-0 w-80 overflow-auto flex flex-col cursor-pointer ${
+        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-10 left-0 w-80 overflow-auto flex flex-col ${
           isActive ? "z-50" : "z-10"
         }`}
       >
@@ -56,7 +55,8 @@ const StatusCard = ({
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
-            className="bg-red-600 border-2 border-black font-black py-1 px-2 cursor-pointer"
+            className="bg-red-600 border-2 border-black font-black py-1 px-2"
+            data-cursor="pointer"
           >
             <p className="text-xs lg:text-base text-black">X</p>
           </motion.button>

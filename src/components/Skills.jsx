@@ -57,7 +57,7 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
       }}
       exit={{ opacity: 0, scale: 0.5, y: 10 }}
       whileDrag={{ scale: 0.9 }}
-      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-${top} left-${left} overflow-auto flex flex-col cursor-pointer ${
+      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-${top} left-${left} overflow-auto flex flex-col ${
         isActive ? "z-50" : "z-10"
       }`}
     >
@@ -70,7 +70,8 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
         <motion.button
           whileTap={{ scale: 0.9 }}
           onClick={onClose}
-          className="bg-red-600 border-2 border-black font-black py-1 px-2 cursor-pointer"
+          className="bg-red-600 border-2 border-black font-black py-1 px-2"
+          data-cursor="pointer"
         >
           <p className="text-xs lg:text-base text-black">X</p>
         </motion.button>

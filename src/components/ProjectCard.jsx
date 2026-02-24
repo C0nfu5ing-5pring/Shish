@@ -63,20 +63,21 @@ const ProjectCard = ({
         y: 10,
       }}
       whileDrag={{ scale: 0.9 }}
-      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute bottom-30 right-20 overflow-auto flex flex-col cursor-pointer ${
+      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute bottom-30 right-20 overflow-auto flex flex-col ${
         isActive ? "z-50" : "z-10"
       }`}
     >
       <div
         onPointerDown={(e) => dragControls.start(e)}
         className="flex justify-between items-center border-b border-(--border) bg-(--header-bg) px-2 lg:px-3 py-1 touch-none"
+        data-cursor="pointer"
       >
         <h1 className="font-black text-base lg:text-xl">Projects</h1>
 
         <motion.button
           whileTap={{ scale: 0.9 }}
           onClick={onClose}
-          className="bg-red-600 border-2 border-black font-black py-1 px-2 cursor-pointer"
+          className="bg-red-600 border-2 border-black font-black py-1 px-2"
         >
           <p className="text-xs lg:text-base text-black">X</p>
         </motion.button>

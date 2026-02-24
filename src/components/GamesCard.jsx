@@ -22,7 +22,8 @@ const GamesCard = ({
     <>
       <motion.div
         layoutId={layoutKey}
-        className="border-2 border-[var(--border)] flex flex-col gap-1 lg:w-40 cursor-pointer"
+        className="border-2 border-[var(--border)] flex flex-col gap-1 lg:w-40"
+        data-cursor="pointer"
         onClick={() => setOpen(true)}
         whileHover={{ scale: 1.05, rotate: -2 }}
       >
@@ -52,7 +53,8 @@ const GamesCard = ({
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setOpen(false)}
-                className="bg-red-600 border-2 border-black font-black py-1 px-2 cursor-pointer absolute top-1 right-1"
+                className="bg-red-600 border-2 border-black font-black py-1 px-2 absolute top-1 right-1"
+                data-cursor="pointer"
               >
                 <p>X</p>
               </motion.button>

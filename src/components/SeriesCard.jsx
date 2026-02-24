@@ -10,6 +10,7 @@ const SeriesCard = ({ why, url, title, image }) => {
           scale: 1.05,
           rotate: -2,
         }}
+        data-cursor="pointer"
       >
         <div>
           <div>
@@ -28,6 +29,7 @@ const SeriesCard = ({ why, url, title, image }) => {
             onClick={() => window.open(url, "_blank")}
             className="absolute bottom-1 right-2 w-5 h-5 rounded-full active:scale-90 transition-all"
             src={arrow}
+            data-cursor="pointer"
           ></motion.img>
         </div>
       </motion.div>

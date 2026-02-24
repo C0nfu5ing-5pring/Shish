@@ -62,7 +62,7 @@ const ContactCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-10 left-10 w-60 lg:w-80 overflow-auto flex flex-col cursor-pointer ${
+        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-10 left-10 w-60 lg:w-80 overflow-auto flex flex-col ${
           isActive ? "z-50" : "z-10"
         }`}
       >
@@ -76,7 +76,8 @@ const ContactCard = ({
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
-            className="bg-red-600 border-2 border-black font-black py-1 px-2 cursor-pointer"
+            className="bg-red-600 border-2 border-black font-black py-1 px-2"
+            data-cursor="pointer"
           >
             <p className="text-xs lg:text-base text-black">X</p>
           </motion.button>
@@ -89,6 +90,7 @@ const ContactCard = ({
               className="h-10 hover:rotate-12"
               src={email}
               alt="Email Logo"
+              data-cursor="pointer"
             />
             <img
               onClick={() =>
@@ -97,6 +99,7 @@ const ContactCard = ({
               className="h-10 hover:rotate-12"
               src={linkedIn}
               alt="LinkedIn Logo"
+              data-cursor="pointer"
             />
             <img
               onClick={() =>
@@ -105,6 +108,7 @@ const ContactCard = ({
               className="h-10 hover:rotate-12"
               src={reddit}
               alt="Reddit Logo"
+              data-cursor="pointer"
             />
             <img
               onClick={() =>
@@ -113,6 +117,7 @@ const ContactCard = ({
               className="h-10 hover:rotate-12"
               src={discord}
               alt="Discord Logo"
+              data-cursor="pointer"
             />
             <img
               onClick={() =>
@@ -123,12 +128,14 @@ const ContactCard = ({
               className="h-10 hover:rotate-12"
               src={spotify}
               alt="Spotify Logo"
+              data-cursor="pointer"
             />
             <img
               onClick={() => window.open("https://github.com/C0nfu5ing-5pring")}
               className="h-10 hover:rotate-12"
               src={github}
               alt="Github Logo"
+              data-cursor="pointer"
             />
           </div>
         </div>

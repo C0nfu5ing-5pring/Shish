@@ -145,7 +145,8 @@ const Home = () => {
               whileTap={{
                 scale: 0.9,
               }}
-              className="w-10 cursor-pointer"
+              className="w-10"
+              data-cursor="pointer"
               src={
                 theme === "dark"
                   ? settingsLight
@@ -176,8 +177,7 @@ const Home = () => {
               I did but I want to do the same thing on a larger scale
               <span className="triangle">)</span>. I like brutalism in
               everything. Even in photographs. For entertainment, I rely mostly
-              on DHH music and web-series. I don't like mainstream music. I
-              DON'T LIKE ANYTHING WHICH IS MAINSTREAM.
+              on DHH music and web-series.
             </p>
           </div>
           <AnimatePresence>

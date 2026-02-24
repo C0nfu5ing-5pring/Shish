@@ -10,7 +10,7 @@ const Settings = ({ setTheme }) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
-        className="absolute z-[999999] right-15 top-5 lg:right-30 lg:top-10 w-[40%] md:w-[25%] lg:w-[15%] border-2 bg-[var(--card)]/90 border-[var(--border)] h-50"
+        className="absolute z-[9999] right-15 top-5 lg:right-30 lg:top-10 w-[40%] md:w-[25%] lg:w-[15%] border-2 bg-[var(--card)]/90 border-[var(--border)] h-50"
       >
         <div className="flex justify-between items-center border-b border-[var(--border)] bg-[var(--header-bg)] px-2 lg:px-3 py-1 touch-none">
           <div>
@@ -26,19 +26,22 @@ const Settings = ({ setTheme }) => {
               onClick={() => setTheme("dark")}
               src={dark}
               alt="Dark theme icon"
-              className="w-15 lg:w-20 object-fit cursor-pointer active:scale-90 transition-all"
+              className="w-15 lg:w-20 object-fit active:scale-90 transition-all"
+              data-cursor="pointer"
             />
             <img
               onClick={() => setTheme("light")}
               src={light}
               alt="Light theme icon"
-              className="w-15 lg:w-20 object-fit cursor-pointer active:scale-90 transition-all"
+              className="w-15 lg:w-20 object-fit active:scale-90 transition-all"
+              data-cursor="pointer"
             />
             <img
               onClick={() => setTheme("brutal")}
               src={brutal}
               alt="Brutal theme icon"
-              className="w-15 lg:w-20 object-fit cursor-pointer active:scale-90 transition-all"
+              className="w-15 lg:w-20 object-fit active:scale-90 transition-all"
+              data-cursor="pointer"
             />
           </div>
         </div>
