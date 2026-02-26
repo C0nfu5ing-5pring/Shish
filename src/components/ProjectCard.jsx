@@ -58,7 +58,7 @@ const ProjectCard = ({
         y: 10,
       }}
       whileDrag={{ scale: 0.9 }}
-      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-30 left-80 overflow-auto flex flex-col ${
+      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-30 left-30 overflow-auto flex flex-col ${
         isActive ? "z-50" : "z-10"
       }`}
     >
