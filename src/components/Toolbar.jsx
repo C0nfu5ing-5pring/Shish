@@ -13,7 +13,7 @@ import projects from "../images/icons/projects.png";
 
 const Toolbar = ({
   openSkills,
-  openProjects,
+  openProject,
   openGallery,
   openActivities,
   openStatus,
@@ -138,7 +138,7 @@ const Toolbar = ({
                   className="w-15 lg:w-10"
                   alt="Projects icon"
                   data-cursor="pointer"
-                  onClick={openProjects}
+                  onClick={openProject}
                 />
               </div>
             </div>
