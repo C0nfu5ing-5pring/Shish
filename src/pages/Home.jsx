@@ -7,10 +7,7 @@ import ContactCard from "../components/ContactCard";
 import Skills from "../components/Skills";
 import StatusCard from "../components/StatusCard";
 import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
-import settingsDark from "../images/icons/settings-dark.png";
-import settingsLight from "../images/icons/settings-light.png";
-import settingsBrutalist from "../images/icons/settings-brutalist.png";
-import Settings from "../components/Settings";
+import Toolbar from "../components/Toolbar";
 
 const Home = () => {
   const date = new Date();
@@ -23,7 +20,6 @@ const Home = () => {
   const [skillsCardVisible, setSkillsCardVisible] = useState(true);
   const [statusCardVisible, setStatusCardVisible] = useState(true);
   const [activeWindow, setActiveWindow] = useState(null);
-  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const onProjectCardClose = () => {
     setProjectCardVisible(false);
@@ -49,37 +45,12 @@ const Home = () => {
     setStatusCardVisible(false);
   };
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 3000);
-  }, []);
-
-  const [theme, setThemeState] = useState("light");
-
-  const setTheme = (theme) => {
-    document.body.classList.remove("dark", "brutal");
-
-    if (theme !== "light") {
-      document.body.classList.add(theme);
-    }
-
-    localStorage.setItem("theme", theme);
-    setThemeState(theme);
-  };
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-
-    document.body.classList.remove("dark", "brutal");
-
-    if (savedTheme !== "light") {
-      document.body.classList.add(savedTheme);
-    }
-
-    setThemeState(savedTheme);
   }, []);
 
   return (
@@ -134,32 +105,6 @@ const Home = () => {
           ref={containerRef}
           className="p-15 flex flex-col h-screen justify-center items-center relative overflow-hidden bg-[var(--bg)] text-[var(--text)] "
         >
-          <div
-            onClick={() => setSettingsOpen(!settingsOpen)}
-            className="absolute top-5 right-5 lg:top-10 lg:right-20"
-          >
-            <motion.img
-              whileHover={{
-                rotate: 45,
-              }}
-              whileTap={{
-                scale: 0.9,
-              }}
-              className="w-10"
-              data-cursor="pointer"
-              src={
-                theme === "dark"
-                  ? settingsLight
-                  : theme === "brutal"
-                    ? settingsBrutalist
-                    : settingsDark
-              }
-              alt="Settings Icon"
-            />
-          </div>
-
-          {settingsOpen ? <Settings setTheme={setTheme} /> : <div></div>}
-
           <div className="flex flex-col justify-center items-center gap-10 md:gap-15 lg:gap-20">
             <h1 className="text-5xl md:text-6xl lg:text-8xl text-center font-black">
               Shish
@@ -244,6 +189,14 @@ const Home = () => {
               />
             )}
           </AnimatePresence>
+          <Toolbar
+            openProject={() => setProjectCardVisible(true)}
+            openSkills={() => setSkillsCardVisible(true)}
+            openStatus={() => setStatusCardVisible(true)}
+            openContact={() => setContactCardVisible(true)}
+            openGallery={() => setGalleryCardVisible(true)}
+            openActivities={() => setActivitiesCardVisible(true)}
+          />
         </div>
       )}
     </>

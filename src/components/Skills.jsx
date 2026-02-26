@@ -36,9 +36,6 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
     setPos(getRandomPosition(containerRef.current, cardRef.current));
   }, []);
 
-  const top = Math.floor(Math.random() * 30) + 1;
-  const left = Math.floor(Math.random() * 3) + 1;
-
   const dragControls = useDragControls();
 
   return (
@@ -57,7 +54,7 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
       }}
       exit={{ opacity: 0, scale: 0.5, y: 10 }}
       whileDrag={{ scale: 0.9 }}
-      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-${top} left-${left} overflow-auto flex flex-col ${
+      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-10 lg:right-138 right-19 overflow-auto flex flex-col ${
         isActive ? "z-50" : "z-10"
       }`}
     >
