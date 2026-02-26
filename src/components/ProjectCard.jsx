@@ -27,11 +27,6 @@ const ProjectCard = ({
   const cardRef = useRef(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
-  useLayoutEffect(() => {
-    if (!containerRef.current || !cardRef.current) return;
-    setPos(getRandomPosition(containerRef.current, cardRef.current));
-  }, [containerRef]);
-
   useEffect(() => {
     axios
       .get("/api/github")
@@ -63,7 +58,7 @@ const ProjectCard = ({
         y: 10,
       }}
       whileDrag={{ scale: 0.9 }}
-      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute bottom-30 right-20 overflow-auto flex flex-col ${
+      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-30 left-80 overflow-auto flex flex-col ${
         isActive ? "z-50" : "z-10"
       }`}
     >
