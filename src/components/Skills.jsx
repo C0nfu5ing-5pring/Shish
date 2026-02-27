@@ -38,6 +38,59 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
 
   const dragControls = useDragControls();
 
+  const techs = [
+    {
+      name: "HTML (Hyper Text Markup Language)",
+      img: html,
+    },
+    {
+      name: "CSS (Cascading Style Sheets)",
+      img: css,
+    },
+    {
+      name: "TailwindCSS",
+      img: tailwindcss,
+    },
+    {
+      name: "SASS (Syntactically Awesome Style Sheets)",
+      img: sass,
+    },
+    {
+      name: "Motion",
+      img: framermotion,
+    },
+    {
+      name: "GSAP (GreenSock Animation Platform)",
+      img: gsap,
+    },
+    {
+      name: "JS (JavaScript)",
+      img: js,
+    },
+    {
+      name: "React",
+      img: react,
+    },
+    {
+      name: "Python",
+      img: python,
+    },
+    {
+      name: "Github",
+      img: github,
+    },
+    {
+      name: "GraphQL",
+      img: graphQL,
+    },
+    {
+      name: "Visual Studio Code",
+      img: vscode,
+    },
+  ];
+
+  const [activeTech, setActiveTech] = useState(null);
+
   return (
     <motion.div
       ref={cardRef}
@@ -75,30 +128,40 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
       </div>
 
       <div className="m-5 grid grid-cols-3 gap-5">
-        <img className="lg:h-20 lg:w-25 w-20 h-15" src={html} alt="HTML" />
-        <img className="lg:h-20 lg:w-25 w-20 h-15" src={css} alt="CSS" />
-        <img
-          className="lg:h-20 lg:w-25 w-20 h-15"
-          src={tailwindcss}
-          alt="Tailwind"
-        />
-        <img className="lg:h-20 lg:w-25 w-20 h-15" src={sass} alt="SASS" />
-        <img
-          className="lg:h-20 lg:w-25 w-20 h-15"
-          src={framermotion}
-          alt="Framer Motion"
-        />
-        <img className="lg:h-20 lg:w-25 w-20 h-15" src={gsap} alt="GSAP" />
-        <img className="lg:h-20 lg:w-25 w-20 h-15" src={js} alt="JS" />
-        <img className="lg:h-20 lg:w-25 w-20 h-15" src={react} alt="React" />
-        <img className="lg:h-20 lg:w-25 w-20 h-15" src={python} alt="Python" />
-        <img className="lg:h-20 lg:w-25 w-20 h-15" src={github} alt="Github" />
-        <img className="lg:h-20 lg:w-25 w-20 h-15" src={vscode} alt="VS Code" />
-        <img
-          className="lg:h-20 lg:w-25 w-20 h-15"
-          src={graphQL}
-          alt="GraphQL"
-        />
+        {techs.map((tech) => {
+          return (
+            <div
+              key={tech.name}
+              className="relative flex flex-col items-center"
+              onMouseEnter={() => {
+                if (!("ontouchstart" in window)) setActiveTech(tech.name);
+              }}
+              onMouseLeave={() => {
+                if (!("ontouchstart" in window)) setActiveTech(null);
+              }}
+              onClick={() =>
+                setActiveTech((prev) => (prev === tech.name ? null : tech.name))
+              }
+            >
+              <img
+                src={tech.img}
+                alt={tech.name}
+                className="w-15 lg:w-20 object-fit"
+              />
+
+              {activeTech === tech.name && (
+                <motion.span
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -5 }}
+                  className="absolute -bottom-6 bg-black text-white text-xs px-2 py-1 border border-white"
+                >
+                  {tech.name}
+                </motion.span>
+              )}
+            </div>
+          );
+        })}
       </div>
     </motion.div>
   );
