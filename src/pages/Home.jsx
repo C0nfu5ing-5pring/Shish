@@ -156,7 +156,6 @@ const Home = () => {
               />
             )}
           </AnimatePresence>
-
           <AnimatePresence>
             {contactCardVisible && (
               <ContactCard
@@ -167,7 +166,6 @@ const Home = () => {
               />
             )}
           </AnimatePresence>
-
           <AnimatePresence>
             {skillsCardVisible && (
               <Skills
@@ -178,7 +176,6 @@ const Home = () => {
               />
             )}
           </AnimatePresence>
-
           <AnimatePresence>
             {statusCardVisible && (
               <StatusCard

@@ -154,7 +154,7 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -5 }}
-                  className="absolute -bottom-6 bg-black text-white text-xs px-2 py-1 border border-white"
+                  className="absolute -bottom-6 bg-[var(--bg)] text-[var(--text)] text-xs px-2 py-1 border border-[var(--border)]"
                 >
                   {tech.name}
                 </motion.span>
