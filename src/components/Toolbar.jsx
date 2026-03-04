@@ -33,7 +33,15 @@ const Toolbar = ({
     return () => clearInterval(interval);
   }, []);
 
-  const [theme, setThemeState] = useState("light");
+  const getSystemTheme = () => {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const [theme, setThemeState] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme || getSystemTheme();
+  });
 
   const setTheme = (theme) => {
     document.body.classList.remove("dark", "brutal");
@@ -47,16 +55,25 @@ const Toolbar = ({
   };
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
 
-    document.body.classList.remove("dark", "brutal");
+    const applyTheme = (t) => {
+      document.body.classList.remove("dark", "brutal");
+      if (t !== "light") document.body.classList.add(t);
+    };
+    applyTheme(theme);
 
-    if (savedTheme !== "light") {
-      document.body.classList.add(savedTheme);
-    }
+    const handleChange = () => {
+      if (!localStorage.getItem("theme")) {
+        const systemTheme = getSystemTheme();
+        setThemeState(systemTheme);
+        applyTheme(systemTheme);
+      }
+    };
 
-    setThemeState(savedTheme);
-  }, []);
+    media.addEventListener("change", handleChange);
+    return () => media.removeEventListener("change", handleChange);
+  }, [theme]);
   return (
     <>
       <div className="w-full h-13 bg-[var(--header-bg)] border-[var(--border)] border-t-2 absolute bottom-0 px-5 py-0 lg:py-2">

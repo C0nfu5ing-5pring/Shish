@@ -147,6 +147,7 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
                 src={tech.img}
                 alt={tech.name}
                 className="w-15 lg:w-20 object-fit"
+                data-cursor="pointer"
               />
 
               {activeTech === tech.name && (

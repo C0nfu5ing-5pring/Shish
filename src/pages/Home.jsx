@@ -45,7 +45,7 @@ const Home = () => {
     setStatusCardVisible(false);
   };
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -62,7 +62,8 @@ const Home = () => {
               <div className="flex flex-col h-screen gap-1 font-black text-[var(--text)] bg-[var(--bg)] justify-center items-center">
                 <RoughNotation
                   type="circle"
-                  classList="text-[var(--text)]s"
+                  color="currentColor"
+                  className="text-[var(--text)]"
                   strokeWidth={2}
                   padding={13}
                 >
@@ -80,7 +81,11 @@ const Home = () => {
                   </div>
                 </RoughNotation>
 
-                <RoughNotation type="underline" className="text-[var(--text)]">
+                <RoughNotation
+                  type="underline"
+                  color="currentColor"
+                  className="text-[var(--text)]"
+                >
                   <div className="flex text-base mg:text-xl lg:text-2xl">
                     {["L", "o", "a", "d", "i", "n", "g"].map((letter, i) => (
                       <motion.span
@@ -135,7 +140,6 @@ const Home = () => {
               />
             )}
           </AnimatePresence>
-
           <AnimatePresence>
             {activitiesCardVisible && (
               <AcitivitesCard
