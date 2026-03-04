@@ -75,3 +75,20 @@ body {
 .triangle {
   font-family: triangleBreak;
 }
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: black transparent;
+}
+
+.perspective {
+  perspective: 1000px;
+}

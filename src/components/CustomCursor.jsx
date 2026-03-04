@@ -37,7 +37,7 @@ const CustomCursor = () => {
     >
       <img
         src={type === "pointer" ? cursorPointer : cursor}
-        className="w-10 pointer-events-none hidden lg:block"
+        className="w-5 pointer-events-none hidden lg:block"
         alt="cursor"
       />
     </motion.div>

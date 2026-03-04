@@ -1,4 +1,4 @@
-import { motion, useDragControls } from "motion/react";
+import { motion, useDragControls, AnimatePresence } from "motion/react";
 import html from "../images/tech/html.png";
 import css from "../images/tech/css.png";
 import tailwindcss from "../images/tech/tailwindcss.png";
@@ -129,37 +129,46 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
 
       <div className="m-5 grid grid-cols-3 gap-5">
         {techs.map((tech) => {
+          const isActive = activeTech === tech.name;
+
           return (
             <div
               key={tech.name}
-              className="relative flex flex-col items-center"
-              onMouseEnter={() => {
-                if (!("ontouchstart" in window)) setActiveTech(tech.name);
-              }}
-              onMouseLeave={() => {
-                if (!("ontouchstart" in window)) setActiveTech(null);
-              }}
+              className="relative w-15 lg:w-20 h-15 lg:h-20 perspective"
               onClick={() =>
                 setActiveTech((prev) => (prev === tech.name ? null : tech.name))
               }
             >
-              <img
-                src={tech.img}
-                alt={tech.name}
-                className="w-15 lg:w-20 object-fit"
-                data-cursor="pointer"
-              />
+              <motion.div
+                animate={{ rotateY: isActive ? 180 : 0 }}
+                transition={{ duration: 0.6 }}
+                className="w-full h-full relative"
+                style={{
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                  style={{ backfaceVisibility: "hidden" }}
+                >
+                  <img
+                    src={tech.img}
+                    alt={tech.name}
+                    className="w-full h-full object-contain"
+                    data-cursor="pointer"
+                  />
+                </div>
 
-              {activeTech === tech.name && (
-                <motion.span
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -5 }}
-                  className="absolute -bottom-6 bg-[var(--bg)] text-[var(--text)] text-xs px-2 py-1 border border-[var(--border)]"
+                <div
+                  className="absolute inset-0 flex items-center justify-center bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] text-xs px-1 text-center"
+                  style={{
+                    transform: "rotateY(180deg)",
+                    backfaceVisibility: "hidden",
+                  }}
                 >
                   {tech.name}
-                </motion.span>
-              )}
+                </div>
+              </motion.div>
             </div>
           );
         })}

@@ -76,12 +76,12 @@ const Toolbar = ({
   }, [theme]);
   return (
     <>
-      <div className="w-full h-13 bg-[var(--header-bg)] border-[var(--border)] border-t-2 absolute bottom-0 px-5 py-0 lg:py-2">
+      <div className="w-full bg-[var(--header-bg)] border-[var(--border)] border-t-2 absolute bottom-0 sm:h-20 lg:h-13 px-5 py-0 lg:py-2">
         <div className="flex justify-between items-center">
-          <div className="flex gap-5">
+          <div className="flex gap-3 justify-start">
             <div
               onClick={() => setSettingsOpen(!settingsOpen)}
-              className="flex items-center"
+              className="flex items-center w-[10%]"
             >
               <motion.img
                 whileHover={{
@@ -103,7 +103,7 @@ const Toolbar = ({
               />
             </div>
 
-            <div className="flex items-center gap-3 w-[70%] lg:w-[80%]">
+            <div className="flex items-center gap-3 w-[80%] lg:w-[80%]">
               <div>
                 <img
                   src={contact}
@@ -161,9 +161,9 @@ const Toolbar = ({
             </div>
             {settingsOpen ? <Settings setTheme={setTheme} /> : <div></div>}
           </div>
-          <div className="flex gap-3 text-sm w-[40%] justify-end  md:text-xl text-[var(--text)] lg:leading-5 lg:text-xl">
-            <div className="triangle">{today}</div>
-            <div className="triangle">{localTime}</div>
+          <div className="flex gap-2 text-sm w-[40%] justify-end md:text-xl text-[var(--text)] lg:leading-5 lg:text-xl">
+            <div className="triangle text-center">{today}</div>
+            <div className="triangle text-center">{localTime}</div>
           </div>
         </div>
       </div>
