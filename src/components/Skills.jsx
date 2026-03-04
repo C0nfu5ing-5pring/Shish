@@ -107,13 +107,13 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
       }}
       exit={{ opacity: 0, scale: 0.5, y: 10 }}
       whileDrag={{ scale: 0.9 }}
-      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-10 lg:right-138 right-19 overflow-auto flex flex-col ${
+      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] shadow-[var[--card-shadow]] shadow-xl absolute top-10 lg:right-138 right-19 overflow-auto flex flex-col ${
         isActive ? "z-50" : "z-10"
       }`}
     >
       <div
         onPointerDown={(e) => dragControls.start(e)}
-        className="flex justify-between items-center border-b border-[var(--border)]  bg-[var(--header-bg)] px-3 py-1 touch-none"
+        className="flex justify-between items-center border-b border-[var(--border)]  bg-[var(--header-bg-dark)] px-3 py-1 touch-none"
       >
         <h1 className="font-black text-lg lg:text-xl">Technologies I use</h1>
 
@@ -160,7 +160,7 @@ const Skills = ({ containerRef, onClose, activeWindow, setActiveWindow }) => {
                 </div>
 
                 <div
-                  className="absolute inset-0 flex items-center justify-center bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] text-xs px-1 text-center"
+                  className="absolute inset-0 flex items-center justify-center  text-[var(--text-muted)] text-xs px-1 text-center"
                   style={{
                     transform: "rotateY(180deg)",
                     backfaceVisibility: "hidden",

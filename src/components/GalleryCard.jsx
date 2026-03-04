@@ -59,13 +59,13 @@ const GalleryCard = ({
       whileDrag={{
         scale: 0.9,
       }}
-      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-30 right-30 w-[75%] md:w-[35%] lg:w-[25%] overflow-auto flex flex-col ${
+      className={`bg-[var(--card)]/90 border-2 border-[var(--border)] shadow-[var[--card-shadow]] shadow-xl absolute top-30 right-30 w-[75%] md:w-[35%] lg:w-[25%] overflow-auto flex flex-col ${
         isActive ? "z-50" : "z-10"
       }`}
     >
       <div
         onPointerDown={(e) => dragControls.start(e)}
-        className="flex justify-between items-center border-b border-(--border) bg-(--header-bg) px-3 py-1 touch-none"
+        className="flex justify-between items-center border-b border-[var(--border)] bg-[var(--header-bg-dark)] px-3 py-1 touch-none"
       >
         <h1 className="font-black text-lg lg:text-xl">Gallery</h1>
 
@@ -80,7 +80,7 @@ const GalleryCard = ({
       </div>
 
       <div className="m-5 grid grid-cols-2 gap-5">
-        <div className="border-3 border-[var(--border)]">
+        <div className="border-3 md:border-[var(--border-light)] hover:border-[var(--border)] hover:rotate-2 transition-all">
           <img
             className="w-50"
             src={bbpsHackathon}
@@ -89,7 +89,7 @@ const GalleryCard = ({
           />
         </div>
 
-        <div className="border-3 h-fit border-[var(--border)]">
+        <div className="border-3 h-fit md:border-[var(--border-light)] hover:border-[var(--border)] hover:rotate-2 transition-all">
           <img
             className="w-50"
             src={bbpsHackathonImage2}

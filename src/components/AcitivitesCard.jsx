@@ -193,13 +193,13 @@ const AcitivitesCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-50 left-30 h-120 w-[70vw] md:w-140 overflow-auto flex flex-col ${
+        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] shadow-[var[--card-shadow]] shadow-xl absolute top-50 left-30 h-120 w-[70vw] md:w-140 overflow-auto flex flex-col ${
           isActive ? "z-50" : "z-10"
         }`}
       >
         <div
           onPointerDown={(e) => dragControls.start(e)}
-          className="flex justify-between border-b border-[var(--border)] items-center bg-[var(--header-bg)] px-2 lg:px-3 py-1 touch-none"
+          className="flex justify-between border-b border-[var(--border)] items-center bg-[var(--header-bg-dark)] px-2 lg:px-3 py-1 touch-none"
         >
           <div>
             <h1 className="font-black text-base lg:text-xl">Favourites</h1>
@@ -217,7 +217,7 @@ const AcitivitesCard = ({
         <div className="px-2 lg:px-3 py-2 flex flex-col gap-3">
           <div>
             <h1 className="font-black text-lg lg:text-xl">Songs</h1>
-            <hr className="border-[var(--border)]" />
+            <hr className="border-[var(--border-light)]" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-3">
@@ -235,7 +235,7 @@ const AcitivitesCard = ({
 
           <div>
             <h1 className="font-black text-lg lg:text-xl">Web Series</h1>
-            <hr className="border-[var(--border)]" />
+            <hr className="border-[var(--border-light)]" />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
@@ -254,7 +254,7 @@ const AcitivitesCard = ({
 
           <div>
             <h1 className="font-black text-lg lg:text-xl">Games</h1>
-            <hr className="border-[var(--border)]" />
+            <hr className="border-[var(--border-light)]" />
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">

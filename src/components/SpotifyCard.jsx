@@ -9,7 +9,7 @@ const SpotifyCard = ({ song, activeSong, setActiveSong }) => {
   return (
     <>
       <motion.div
-        className="border-2 border-[var(--border)] w-full lg:w-60 flex gap-5 items-center px-2 py-1 relative"
+        className="border-2 md:border-[var(--border-light)] hover:border-[var(--border)] w-full lg:w-60 flex gap-5 items-center px-2 py-1 relative"
         whileHover={{
           scale: 1.05,
           rotate: 3,
@@ -26,8 +26,10 @@ const SpotifyCard = ({ song, activeSong, setActiveSong }) => {
         </div>
         <div id="right">
           <div>
-            <h1 className="text-base lg:text-xl font-black">{title}</h1>
-            <p className="text-xs">{artist}</p>
+            <h1 className="text-base lg:text-xl font-black text-[var(--text)]">
+              {title}
+            </h1>
+            <p className="text-xs text-[var(--text-muted)]">{artist}</p>
           </div>
         </div>
       </motion.div>
@@ -38,7 +40,7 @@ const SpotifyCard = ({ song, activeSong, setActiveSong }) => {
             <>
               <motion.div
                 layoutId={layoutKey}
-                className="fixed top-1/2 left-1/2 -translate-x-1/2 z-[999] -translate-y-1/2 w-[75%] md:w-[30%] lg:w-[25%] h-[30%] lg:h-[35%] lg:pt-10 bg-[var(--bg)] border-3 px-3 lg:px-10 flex flex-col gap-0 justify-center overflow-y-auto"
+                className="fixed top-1/2 left-1/2 -translate-x-1/2 z-[999] -translate-y-1/2 w-[75%] md:w-[30%] lg:w-[25%] h-[30%] lg:h-[35%] lg:pt-10 bg-[var(--bg)] border-2 border-[var(--border)] px-3 lg:px-10 flex flex-col gap-0 justify-center overflow-y-auto"
                 onClick={(e) => e.stopPropagation()}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -61,7 +63,9 @@ const SpotifyCard = ({ song, activeSong, setActiveSong }) => {
                     className="rounded-xl h-20 lg:h-38 w-full"
                     data-cursor="pointer"
                   />
-                  <div className="text-center text-[var(--text)]">{why}</div>
+                  <div className="text-center text-[var(--text-muted)] triangle text-xl">
+                    {why}
+                  </div>
                 </div>
               </motion.div>
             </>

@@ -6,30 +6,46 @@
   --color-card: rgb(var(--card) / <alpha-value>);
   --color-border: rgb(var(--border) / <alpha-value>);
   --color-header-bg: rgb(var(--header-bg) / <alpha-value>);
+  --color-text-muted: rgb(var(--text-muted) / <alpha-value>);
+  --color-card-shadow: rgb(var(--card-shadow) / <alpha-value>);
+  --color-border-light: rgb(var(--border-light) / <alpha-value>);
+  --color-header-bg-dark: rgb(var(--header-bg-dark) / <alpha-value>);
 }
 
 :root {
-  --bg: #fff;
-  --text: #000;
-  --card: #fff;
-  --border: #000;
-  --header-bg: #99a1ae;
+  --bg: #fff7f0;
+  --card: #fff7f0;
+  --card-shadow: #f6eae0;
+  --text: #1a1a1a;
+  --text-muted: #555555;
+  --border: #1a1a1a;
+  --border-light: #e0d6cc;
+  --header-bg: #bfb7b0;
+  --header-bg-dark: #a89e96;
 }
 
 .dark {
-  --bg: #111827;
-  --text: #f3f4f6;
-  --card: #1f2937;
-  --border: #374151;
-  --header-bg: #374151;
+  --bg: #1a1c23;
+  --card: #1f2230;
+  --card-shadow: #2a2e42;
+  --text: #e4e4e6;
+  --text-muted: #a1a1aa;
+  --border: #3c3f50;
+  --border-light: #4b4f63;
+  --header-bg: #2c2f3f;
+  --header-bg-dark: #1f2230;
 }
 
 .brutal {
   --bg: #7a003c;
-  --text: #00ff00;
   --card: #b3005e;
+  --card-shadow: #ff66aa;
+  --text: #00ff99;
+  --text-muted: #33ff88;
   --border: #000000;
+  --border-light: #330033;
   --header-bg: #c52a87;
+  --header-bg-dark: #a21e70;
 }
 
 @font-face {

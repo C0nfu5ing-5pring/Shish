@@ -12,7 +12,7 @@ const Settings = ({ setTheme }) => {
         transition={{ duration: 0.5 }}
         className="absolute z-[9999] -top-50 w-[40%] md:w-[25%] lg:w-[15%] border-2 bg-[var(--card)]/90 border-[var(--border)] h-50"
       >
-        <div className="flex justify-between items-center border-b border-[var(--border)] bg-[var(--header-bg)] px-2 lg:px-3 py-1 touch-none">
+        <div className="flex justify-between items-center border-b border-[var(--border)] bg-[var(--header-bg-dark)] px-2 lg:px-3 py-1 touch-none">
           <div>
             <h1 className="font-black text-base lg:text-xl">Settings</h1>
           </div>
@@ -20,7 +20,7 @@ const Settings = ({ setTheme }) => {
 
         <div className="px-2 py-1 lg:px-3">
           <h1 className="text-xl lg:text-2xl">Theme</h1>
-          <hr className="mb-3 border-[var(--border)]" />
+          <hr className="mb-3 border-[var(--border-light)]" />
           <div className="grid grid-cols-2 gap-3">
             <img
               onClick={() => setTheme("dark")}

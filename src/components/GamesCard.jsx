@@ -22,7 +22,7 @@ const GamesCard = ({
     <>
       <motion.div
         layoutId={layoutKey}
-        className="border-2 border-[var(--border)] flex flex-col gap-1 lg:w-40"
+        className="border-2 md:border-[var(--border-light)] hover:border-[var(--border)] flex flex-col gap-1 lg:w-40"
         data-cursor="pointer"
         onClick={() => setOpen(true)}
         whileHover={{ scale: 1.05, rotate: -2 }}
@@ -44,7 +44,7 @@ const GamesCard = ({
           {open && (
             <motion.div
               layoutId={layoutKey}
-              className={`fixed top-1/2 left-1/2 border-[var(--border)]  -translate-x-1/2 -translate-y-1/2 w-[70%] md:w-[30%] h-[65%] lg:h-[70%] z-[999] bg-[var(--bg)] border-3 p-10 overflow-y-auto`}
+              className={`fixed top-1/2 left-1/2 border-[var(--border)]  -translate-x-1/2 -translate-y-1/2 w-[70%] md:w-[30%] h-[65%] lg:h-[70%] z-[999] bg-[var(--bg)] border-2 p-10 overflow-y-auto`}
               onClick={() => setOpen(false)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

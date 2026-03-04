@@ -62,13 +62,13 @@ const ContactCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] absolute top-10 left-10 w-60 lg:w-80 overflow-auto flex flex-col ${
+        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] shadow-[var[--card-shadow]] shadow-xl absolute top-10 left-10 w-60 lg:w-80 overflow-auto flex flex-col ${
           isActive ? "z-50" : "z-10"
         }`}
       >
         <div
           onPointerDown={(e) => dragControls.start(e)}
-          className="flex justify-between items-center border-b border-[var(--border)] bg-[var(--header-bg)] px-3 py-1 touch-none"
+          className="flex justify-between items-center border-b border-[var(--border)] bg-[var(--header-bg-dark)] px-3 py-1 touch-none"
         >
           <div>
             <h1 className="font-black text-lg lg:text-xl">Contact</h1>
