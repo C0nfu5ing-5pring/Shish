@@ -70,9 +70,6 @@ const StatusCard = ({
           <h1 className="text-xs lg:text-base w-fit">
             Hackclubbing (Flavortown)
           </h1>
-          <h1 className="text-xs lg:text-base w-fit">
-            Studying for annual exams
-          </h1>
         </div>
       </motion.div>
     </>
