@@ -66,7 +66,6 @@ const StatusCard = ({
           <h1 className="text-xs lg:text-base w-fit">
             Available for collaboration
           </h1>
-          <h1 className="text-xs lg:text-base w-fit">Working on Saral Rates</h1>
           <h1 className="text-xs lg:text-base w-fit">
             Hackclubbing (Flavortown)
           </h1>
