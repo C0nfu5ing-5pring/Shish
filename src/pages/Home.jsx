@@ -117,7 +117,7 @@ const Home = () => {
             <p className="w-full md:w-[55%] lg:w-[65%] text-base md:text-xl leading-5 lg:leading-8 lg:text-2xl text-center">
               I am a <span className="triangle">{year - 2008}</span> year young
               from India, I like to make useful, brutalist and minimalist
-              websites. I am currently in grade XI studying PCB and Computer
+              websites. I am currently in grade XII studying PCB and Computer
               Science. After school I spend most of my time learning more about
               web development and AI. I like understanding how things work under
               the hood. I am always curious about how things work around us. I
