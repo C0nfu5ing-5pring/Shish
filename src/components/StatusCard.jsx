@@ -67,11 +67,12 @@ const StatusCard = ({
             Available for collaboration
           </h1>
           <h1 className="text-xs lg:text-base w-fit">
-            Hackclubbing - Preparing for{" "}
+            Hackclubbing - participating in{" "}
             <a
               className="underline underline-offset-4"
               href="https://www.nasa.gov/stem-content/hack-club-stardance-challenge/"
               data-cursor="pointer"
+              target="_blank"
             >
               Stardance
             </a>
