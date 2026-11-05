@@ -1,5 +1,4 @@
 import { motion, useDragControls } from "motion/react";
-import discord from "../images/socials/discord.png";
 import email from "../images/socials/email.png";
 import linkedIn from "../images/socials/linkedIn.png";
 import reddit from "../images/socials/reddit.png";
@@ -112,18 +111,7 @@ const ContactCard = ({
             />
             <img
               onClick={() =>
-                window.open("https://discord.com/users/1077969916793192589")
-              }
-              className="h-10 hover:rotate-12"
-              src={discord}
-              alt="Discord Logo"
-              data-cursor="pointer"
-            />
-            <img
-              onClick={() =>
-                window.open(
-                  "https://open.spotify.com/user/31pigmldap7vo7kvfgbu3bmsempe?si=271da90e47f84a7d",
-                )
+                window.open("https://music.apple.com/profile/c0nfu5ing")
               }
               className="h-10 hover:rotate-12"
               src={spotify}

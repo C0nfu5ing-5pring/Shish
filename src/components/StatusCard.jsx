@@ -64,17 +64,17 @@ const StatusCard = ({
 
         <div className="px-3 py-3 flex flex-col gap-3">
           <h1 className="text-xs lg:text-base w-fit">
-            Available for collaboration
+            Testing limitations of my new 3D Printer
           </h1>
           <h1 className="text-xs lg:text-base w-fit">
             Hackclubbing - participating in{" "}
             <a
               className="underline underline-offset-4"
-              href="https://www.nasa.gov/stem-content/hack-club-stardance-challenge/"
+              href="https://haven.hackclub.com/"
               data-cursor="pointer"
               target="_blank"
             >
-              Stardance
+              Haven Ahmedabad
             </a>
           </h1>
         </div>
