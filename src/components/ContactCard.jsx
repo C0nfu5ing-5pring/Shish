@@ -1,8 +1,6 @@
 import { motion, useDragControls } from "motion/react";
 import email from "../images/socials/email.png";
-import linkedIn from "../images/socials/linkedIn.png";
-import reddit from "../images/socials/reddit.png";
-import spotify from "../images/socials/spotify.png";
+import apple_music from "../images/socials/applemusic.png";
 import github from "../images/tech/github.png";
 import { useState, useRef, useLayoutEffect } from "react";
 
@@ -70,7 +68,7 @@ const ContactCard = ({
           className="flex justify-between items-center border-b border-[var(--border)] bg-[var(--header-bg-dark)] px-3 py-1 touch-none"
         >
           <div>
-            <h1 className="font-black text-lg lg:text-xl">Contact</h1>
+            <h1 className="font-black text-lg lg:text-xl">Socials</h1>
           </div>
           <motion.button
             whileTap={{ scale: 0.9 }}
@@ -91,31 +89,14 @@ const ContactCard = ({
               alt="Email Logo"
               data-cursor="pointer"
             />
-            <img
-              onClick={() =>
-                window.open("https://in.linkedin.com/in/shish-frutwala")
-              }
-              className="h-10 hover:rotate-12"
-              src={linkedIn}
-              alt="LinkedIn Logo"
-              data-cursor="pointer"
-            />
-            <img
-              onClick={() =>
-                window.open("https://www.reddit.com/user/c0nfu5ing-5pring/")
-              }
-              className="h-10 hover:rotate-12"
-              src={reddit}
-              alt="Reddit Logo"
-              data-cursor="pointer"
-            />
+
             <img
               onClick={() =>
                 window.open("https://music.apple.com/profile/c0nfu5ing")
               }
               className="h-10 hover:rotate-12"
-              src={spotify}
-              alt="Spotify Logo"
+              src={apple_music}
+              alt="Apple Music Logo"
               data-cursor="pointer"
             />
             <img

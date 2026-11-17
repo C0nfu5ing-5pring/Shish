@@ -3,9 +3,9 @@ import { useState, useRef, useLayoutEffect } from "react";
 import SpotifyCard from "./SpotifyCard";
 import haveItAll from "../images/songs/haveItAll.jpg";
 import hoshiyaar from "../images/songs/hoshiyaar.png";
-import bondFission from "../images/songs/bondFission.png";
+import videoGames from "../images/songs/videoGames.png";
 import dontTell from "../images/songs/dontTell.png";
-import attached from "../images/songs/attached.png";
+import dildooba from "../images/songs/dildooba.png";
 import mutual from "../images/songs/mutual.png";
 import kaise from "../images/songs/kaise.png";
 import hardToRead from "../images/songs/hardToRead.png";
@@ -64,11 +64,11 @@ const AcitivitesCard = ({
       why: "Beautiful lyrics ",
     },
     {
-      title: "Bond Fission",
-      artist: "Reble",
-      image: bondFission,
-      embed: `1vQH3BXqf0Y4S4t7RSX2Cp`,
-      why: "Sounds good when I am happy",
+      title: "Video Games",
+      artist: "Seedhe Maut",
+      image: videoGames,
+      embed: `3iiQDjlBJdCv7O6jRLmiWq`,
+      why: "One of my favourites from DL91 FM",
     },
     {
       title: "Don't Tell",
@@ -78,11 +78,11 @@ const AcitivitesCard = ({
       why: "You'll like it if you like indie music",
     },
     {
-      title: "Attached",
-      artist: "RANJ, Clifr, Issamood",
-      image: attached,
-      embed: `4LXP4tw0mucgLy8zeNj7lL`,
-      why: "Sounds cool to me",
+      title: "Dil Dooba",
+      artist: "Frappe Ash, Calm",
+      image: dildooba,
+      embed: `2vTvYjbONRBCtGLa13u45Y`,
+      why: "Dil Dooooooba!",
     },
     {
       title: "Mutual",

@@ -117,17 +117,11 @@ const Home = () => {
             <p className="w-full md:w-[55%] lg:w-[65%] text-base md:text-xl leading-5 lg:leading-8 lg:text-2xl text-center">
               I am a <span className="triangle">{year - 2008}</span> year young
               from India, I like to make useful, brutalist and minimalist
-              websites. I am currently in grade XII studying PCB and Computer
-              Science. After school I spend most of my time learning more about
-              web development and AI. I like understanding how things work under
-              the hood. I am always curious about how things work around us. I
-              think that journalism is a very cool thing. I like reading
-              documents and data and researching and making inferences. I really
-              want to researach on something <span className="triangle">(</span>
-              I did but I want to do the same thing on a larger scale
-              <span className="triangle">)</span>. I like brutalism in
-              everything. Even in photographs. For entertainment, I rely mostly
-              on DHH music and web-series.
+              websites, games and CAD designs (household items). I am currently
+              in grade XII studying PCB and Computer Science. Apart from coding,
+              I am an audiophile, and like to workout whenever I get time. I
+              like brutalism in everything. Even in photographs. For
+              entertainment, I rely mostly on DHH music.
             </p>
           </div>
           <AnimatePresence>

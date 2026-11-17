@@ -64,17 +64,21 @@ const StatusCard = ({
 
         <div className="px-3 py-3 flex flex-col gap-3">
           <h1 className="text-xs lg:text-base w-fit">
-            Testing limitations of my new 3D Printer
+            Testing limitations of my 3D Printer
           </h1>
+          <h1 className="text-xs lg:text-base w-fit">
+            Obsessed with Polaroid Camera
+          </h1>
+          <h1>Learning Game Development (Godot, Ren'Py)</h1>
           <h1 className="text-xs lg:text-base w-fit">
             Hackclubbing - participating in{" "}
             <a
               className="underline underline-offset-4"
-              href="https://haven.hackclub.com/"
+              href="https://phantom.hackclub.com/?ref=Gf7Nd"
               data-cursor="pointer"
               target="_blank"
             >
-              Haven Ahmedabad
+              Phantom
             </a>
           </h1>
         </div>

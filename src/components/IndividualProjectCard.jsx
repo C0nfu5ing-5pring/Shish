@@ -15,7 +15,7 @@ const IndividualProjectCard = ({ title, url }) => {
           rotate: -3,
           scale: 1.05,
         }}
-        className="w-15 h-10 md:w-25 md:h-15 lg:w-40 lg:h-20"
+        className="w-12 h-8 md:w-25 md:h-15 lg:w-40 lg:h-20"
         onClick={() => window.open(url, "_blank")}
       />
       <p className="text-center lg:text-sm text-xs">{title}</p>

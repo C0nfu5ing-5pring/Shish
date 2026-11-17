@@ -1,6 +1,12 @@
 import { motion, useDragControls } from "motion/react";
-import bbpsHackathon from "../images/gallery/bbpsHackathonImage.jpeg";
 import bbpsHackathonImage2 from "../images/gallery/bbpsHackathonImage02.jpeg";
+import me from "../images/gallery/me.jpg";
+import me2 from "../images/gallery/me2.jpg";
+import mum from "../images/gallery/mum.jpg";
+import nani_nana from "../images/gallery/nani_nana.jpg";
+import mum2 from "../images/gallery/mum2.jpg";
+import havenAhm from "../images/gallery/havenAhm.png";
+
 import { useState, useRef, useLayoutEffect } from "react";
 
 const getRandomPosition = (container, card) => {
@@ -80,20 +86,45 @@ const GalleryCard = ({
       </div>
 
       <div className="m-5 grid grid-cols-2 gap-5">
-        <div className="border-3 md:border-[var(--border-light)] hover:border-[var(--border)] hover:rotate-2 transition-all">
+        <div className="border-3 h-fit md:border-[var(--border-light)] hover:border-[var(--border)] hover:rotate-2 transition-all">
+          <img className="w-50" src={me} alt="It's me!" data-cursor="pointer" />
+        </div>
+        <div className="border-3 h-fit md:border-[var(--border-light)] hover:border-[var(--border)] hover:rotate-2 transition-all">
           <img
             className="w-50"
-            src={bbpsHackathon}
-            alt="BBPS Hackathon 2024 - Most Innovative Project Award"
+            src={me2}
+            alt="It's me! (again)"
             data-cursor="pointer"
           />
         </div>
 
         <div className="border-3 h-fit md:border-[var(--border-light)] hover:border-[var(--border)] hover:rotate-2 transition-all">
+          <img className="w-50" src={mum} alt="Mum" data-cursor="pointer" />
+        </div>
+        <div className="border-3 h-fit md:border-[var(--border-light)] hover:border-[var(--border)] hover:rotate-2 transition-all">
+          <img className="w-50" src={mum2} alt="Mum" data-cursor="pointer" />
+        </div>
+        <div className="border-3 h-fit md:border-[var(--border-light)] hover:border-[var(--border)] hover:rotate-2 transition-all">
+          <img
+            className="w-50"
+            src={nani_nana}
+            alt="My Maternal Grandparents"
+            data-cursor="pointer"
+          />
+        </div>
+        <div className="border-3 h-fit md:border-[var(--border-light)] hover:border-[var(--border)] hover:rotate-2 transition-all">
           <img
             className="w-50"
             src={bbpsHackathonImage2}
             alt="BBPS Hackathon 2024 - Felicitation"
+            data-cursor="pointer"
+          />
+        </div>
+        <div className="border-3 h-fit md:border-[var(--border-light)] hover:border-[var(--border)] hover:rotate-2 transition-all">
+          <img
+            className="w-50"
+            src={havenAhm}
+            alt="Me at Haven Ahmedabad - 2026"
             data-cursor="pointer"
           />
         </div>
