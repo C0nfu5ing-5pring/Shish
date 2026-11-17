@@ -1,44 +1,61 @@
-# Shish's Personal Website
+# SHISH FRUTWALA
 
-This is my website. Yes. That's it. If you want to know more about me, visit it ¯\\\_(ツ)\_/¯.
+### HACKCLUBBER
 
-## Technologies used
+`18` `INDIA`
 
-- HTML
-- CSS
-- JS
-- React
-- Motion
-- GraphQL
-- axios
-- react-router-dom
-- TailwindCSS
+---
 
-## Features
+> I BUILD WEBSITES, GAMES AND SOMETIMES JUST WEIRD CAD DESIGNS THAT I AM AFRAID OF PRINTING ON MY 3D PRINTER
 
-- So, I have divided my website and the information about me into tabs. Each tab has some sort of information about me. So there is a status tab which tells about my status/thing currently I am working on. And if you want to know more about me and my thoughts, you need to close all the tabs and then you can see a paragraph written about me by me
-- You can move those tabs wherever you want!
-- You can see and listen to my favourite songs on the website
-- You can see my favourite games and webseries of all time
-- I also included easter eggs in favourite games section
-- Once you close a tab, you can reopen it using the taskbar situated below
-- Taskbar shows you your local time and date
-- You can change themes! So there are 3 themes, dark, light and brutal
-- Default theme will be set according to your system preferences
-- You can see my other projects in projects section
-- I used GraphQL to get only the pinned repositories from my profile
-- Every image you see on this website is HAND-DRAWN, yes I drew it (ik my drawing is bad)
-- The design of this website is inspired by brutalist web-design
-- The website shows all the technologies that I use, it has a gallery section with a couple of photos of mine and one contact section with all my socials
-- It has a custom cursor (which is also HAND-DRAWN)
-- The website is responsive meaning it is suitable for devices with both small and large screens
+[ GITHUB ](https://github.com/C0nfu5ing-5pring) / [ LINKEDIN ](https://www.linkedin.com/in/shish-frutwala) / [ EMAIL ](mailto:shishfruitwala29@gmail.com)
 
-That's it I think (I think I am forgetting something but I can't remember it properly)
+---
 
-## Visit the website
+## WHAT I WORK WITH
 
-- [www.shish.live](www.shish.live). This domain will expire on feb 20 of 2027 so if you are reading it after feb 20 2027 then kindly visit https://shiish.vercel.app.
+**FRONTEND**
 
-## Collaborate
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=html,css,sass,tailwind,js,react,nextjs" />
+  <img src="https://skillicons.dev/icons?i=graphql" />
+</p>
 
-- If you have any idea or are finding a person to work on a project with, then visit my website and contact me through my socials.
+**BACKEND & DATABASE**
+
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=nodejs,express,mysql,mongodb,python" />
+</p>
+
+**INFRASTRUCTURE & DEPLOYMENT**
+
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=raspberrypi,cloudflare,vercel,linux,git,github" />
+</p>
+
+**GAME DEVELOPMENT**
+
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=godot" />
+  <img src="https://cdn.simpleicons.org/renpy/FF7F7F" height="48" alt="Ren'Py" />
+</p>
+
+**3D PRINTING**
+
+<p align="left">
+  <a href="https://www.onshape.com/">
+  ONSHAPE
+  </a>
+</p>
+
+## SELECTED WORK
+
+I LIKE BUILDING THINGS THAT SOLVE ACTUAL PROBLEMS.
+
+→ [SARAL RATES](https://github.com/C0nfu5ing-5pring)  
+Agricultural market prices for farmers and traders
+
+→ [SOLVE IT](https://github.com/C0nfu5ing-5pring)  
+Find and share previous year question papers for competitive examinations
+
+---
