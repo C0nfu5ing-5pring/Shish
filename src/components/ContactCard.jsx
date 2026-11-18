@@ -149,26 +149,24 @@ const ContactCard = ({
 
       <div className="details-bar" style={{ flexShrink: 0 }}>
         <span>Socials</span>
-        <span>Connect</span>
       </div>
 
       <div
-        className="window-pane"
-        style={{
-          flex: isFullscreen ? 1 : "initial",
-          minHeight: 0,
-          overflow: "auto",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+        className={`window-pane min-h-0 overflow-auto flex items-center justify-center ${
+          isFullscreen ? "flex-1" : ""
+        }`}
       >
-        <div className="social-links">
+        <div className="flex items-center justify-center gap-10 w-full p-6 box-border">
           <a
             href="mailto:shishfruitwala29@gmail.com"
             aria-label="Send an email"
+            className="flex items-center justify-center"
           >
-            <img src={email} alt="Email" className="social-icon" />
+            <img
+              src={email}
+              alt="Email"
+              className="w-10 h-10 md:w-15 md:h-15 lg:w-20 lg:h-20 object-contain cursor-pointer transition-transform duration-200 ease-in-out hover:rotate-[12deg] hover:scale-110"
+            />
           </a>
 
           <a
@@ -176,8 +174,13 @@ const ContactCard = ({
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Apple Music profile"
+            className="flex items-center justify-center"
           >
-            <img src={apple_music} alt="Apple Music" className="social-icon" />
+            <img
+              src={apple_music}
+              alt="Apple Music"
+              className="w-10 h-10 md:w-15 md:h-15 lg:w-20 lg:h-20 object-contain cursor-pointer transition-transform duration-200 ease-in-out hover:rotate-[12deg] hover:scale-110"
+            />
           </a>
 
           <a
@@ -185,8 +188,13 @@ const ContactCard = ({
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
+            className="flex items-center justify-center"
           >
-            <img src={github} alt="GitHub" className="social-icon" />
+            <img
+              src={github}
+              alt="GitHub"
+              className="w-10 h-10 md:w-15 md:h-15 lg:w-20 lg:h-20 object-contain cursor-pointer transition-transform duration-200 ease-in-out hover:rotate-[12deg] hover:scale-110"
+            />
           </a>
         </div>
       </div>

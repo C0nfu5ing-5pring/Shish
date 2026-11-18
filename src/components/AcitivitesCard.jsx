@@ -12,8 +12,6 @@ import hardToRead from "../images/songs/hardToRead.png";
 import tires from "../images/webseries/tires.png";
 import wd2 from "../images/games/wd2.png";
 import rdr2 from "../images/games/rdr2.png";
-import SeriesCard from "./SeriesCard";
-import GamesCard from "./GamesCard";
 import wd2Banner from "../images/games/wd2Banner.png";
 import rdr2Banner from "../images/games/rdr2Banner.png";
 import rickroll from "../images/rickRoll.png";
@@ -24,17 +22,15 @@ import un4 from "../images/games/un4.png";
 import un4Banner from "../images/games/un4Banner.png";
 import iAmAManOfMyFortuneAndIMustSeekMyFortune from "../images/iAmAManOfMyFortuneAndIMustSeekMyFortune.png";
 import un4Video from "../images/un4Video.png";
+import audionIcon from "../images/icons/audion.png";
 
 const getRandomPosition = (container, card) => {
   const c = container.getBoundingClientRect();
   const b = card.getBoundingClientRect();
 
-  const maxX = c.width - b.width;
-  const maxY = c.height - b.height;
-
   return {
-    x: Math.random() * Math.max(0, maxX),
-    y: Math.random() * Math.max(0, maxY),
+    x: Math.random() * Math.max(0, c.width - b.width),
+    y: Math.random() * Math.max(0, c.height - b.height),
   };
 };
 
@@ -44,67 +40,54 @@ const AcitivitesCard = ({
   activeWindow,
   setActiveWindow,
 }) => {
-  const date = new Date();
-  const year = date.getFullYear();
-  const years = year - 2023;
-
   const songs = [
     {
       title: "Have It All",
       artist: "CASTLE BEAT",
       image: haveItAll,
-      embed: `7t7zUhP20qISNDNa1825kK`,
-      why: `In my playlist since ${years} years now`,
+      embed: "7t7zUhP20qISNDNa1825kK",
     },
     {
       title: "Hoshiyaar",
       artist: "Seedhe Maut, Sez on the Beat",
       image: hoshiyaar,
-      embed: `45OIe9DAqIW9wbNJpQhF1P`,
-      why: "Beautiful lyrics ",
+      embed: "45OIe9DAqIW9wbNJpQhF1P",
     },
     {
       title: "Video Games",
       artist: "Seedhe Maut",
       image: videoGames,
-      embed: `3iiQDjlBJdCv7O6jRLmiWq`,
-      why: "One of my favourites from DL91 FM",
+      embed: "3iiQDjlBJdCv7O6jRLmiWq",
     },
     {
       title: "Don't Tell",
       artist: "Dishaan",
       image: dontTell,
-      embed: `3ibIs3ijJRsQ45MOwuzZjR`,
-      why: "You'll like it if you like indie music",
+      embed: "3ibIs3ijJRsQ45MOwuzZjR",
     },
     {
       title: "Dil Dooba",
       artist: "Frappe Ash, Calm",
       image: dildooba,
-      embed: `2vTvYjbONRBCtGLa13u45Y`,
-      why: "Dil Dooooooba!",
+      embed: "2vTvYjbONRBCtGLa13u45Y",
     },
     {
       title: "Mutual",
       artist: "RANJ, Clifr",
       image: mutual,
-      embed: `25T9KzOqSe44j3nsWuKfiM`,
-      why: "Nice vocals and music",
+      embed: "25T9KzOqSe44j3nsWuKfiM",
     },
     {
       title: "Kaise",
       artist: "Frappe Ash, Aman Sagar",
       image: kaise,
-      embed: `7lE4hlwqJZE7Q19OGqKyXV`,
-      why: "I like it just because it's relatable sometimes",
+      embed: "7lE4hlwqJZE7Q19OGqKyXV",
     },
-
     {
       title: "Hard to Read",
       artist: "Day Wave",
       image: hardToRead,
-      embed: `7JpcP0YUCNy8UklFgOf4t4`,
-      why: "Listened this one from WatchDogs 2, loving it since then",
+      embed: "7JpcP0YUCNy8UklFgOf4t4",
     },
   ];
 
@@ -160,111 +143,152 @@ const AcitivitesCard = ({
   const isActive = activeWindow === "activities";
   const cardRef = useRef(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
+  const dragControls = useDragControls();
 
   useLayoutEffect(() => {
     if (!containerRef.current || !cardRef.current) return;
     setPos(getRandomPosition(containerRef.current, cardRef.current));
-  }, []);
-
-  const dragControls = useDragControls();
+  }, [containerRef]);
 
   return (
-    <>
-      <motion.div
-        ref={cardRef}
-        drag
-        dragListener={false}
-        dragControls={dragControls}
-        dragConstraints={containerRef}
-        onMouseDown={() => setActiveWindow("activities")}
-        initial={{
-          x: pos.x,
-          y: pos.y,
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        exit={{
-          opacity: 0,
-          scale: 0.5,
-          y: 10,
-        }}
-        whileDrag={{
-          scale: 0.9,
-        }}
-        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] shadow-[var[--card-shadow]] shadow-xl absolute top-50 left-30 h-120 w-[70vw] md:w-140 overflow-auto flex flex-col ${
-          isActive ? "z-50" : "z-10"
-        }`}
+    <motion.div
+      ref={cardRef}
+      drag
+      dragListener={false}
+      dragControls={dragControls}
+      dragConstraints={containerRef}
+      dragMomentum={false}
+      initial={{
+        x: pos.x,
+        y: pos.y,
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      exit={{
+        opacity: 0,
+        scale: 0.5,
+        y: 10,
+      }}
+      whileDrag={{
+        scale: 0.98,
+      }}
+      onPointerDown={() => setActiveWindow("activities")}
+      className={`window absolute flex flex-col overflow-hidden w-[90vw] md:w-[560px]  ${
+        isActive ? "z-50" : "z-10"
+      }`}
+      style={{
+        left: 0,
+        top: 0,
+      }}
+    >
+      <div
+        className="title-bar shrink-0 touch-none select-none"
+        onPointerDown={(e) => dragControls.start(e)}
       >
-        <div
-          onPointerDown={(e) => dragControls.start(e)}
-          className="flex justify-between border-b border-[var(--border)] items-center bg-[var(--header-bg-dark)] px-2 lg:px-3 py-1 touch-none"
-        >
-          <div>
-            <h1 className="font-black text-base lg:text-xl">Favourites</h1>
-          </div>
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            onClick={onClose}
-            className="bg-red-600 border-2 border-black font-black py-1 px-2"
-            data-cursor="pointer"
-          >
-            <p className="text-xs lg:text-base text-black">X</p>
-          </motion.button>
-        </div>
+        <button
+          className="close"
+          aria-label="Close window"
+          onPointerDown={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+        />
 
-        <div className="px-2 lg:px-3 py-2 flex flex-col gap-3">
-          <div>
-            <h1 className="font-black text-lg lg:text-xl">Songs</h1>
-            <hr className="border-[var(--border-light)]" />
-          </div>
+        <h1 className="title">Songs</h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-3">
-            {songs.map((song, index) => {
-              return (
-                <SpotifyCard
-                  key={song.embed || index}
-                  song={song}
-                  activeSong={activeSong}
-                  setActiveSong={setActiveSong}
+        <button
+          className="resize"
+          aria-label="Resize the window"
+          onPointerDown={(e) => e.stopPropagation()}
+        />
+      </div>
+
+      <div className="details-bar">
+        <p>8 songs</p>
+      </div>
+
+      <div className="window-pane flex-1 min-h-0 overflow-y-auto p-1 md:p-2">
+        <div className="flex flex-col gap-4">
+          <section>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-1 mt-3">
+              {songs.map((song) => (
+                <button
+                  key={song.embed}
+                  onClick={() => setActiveSong(song)}
+                  className={`flex flex-col items-center gap-2 p-1 border-[var(--border)] transition-all ${
+                    activeSong?.embed === song.embed
+                      ? "bg-[#86878880]"
+                      : "hover:bg-[#86878880]"
+                  }`}
+                >
+                  <img
+                    src={audionIcon}
+                    alt="Play song"
+                    className="w-10 h-10 lg:w-14 lg:h-14 object-contain"
+                  />
+
+                  <span className="font-bold text-sm text-center">
+                    {song.title}
+                    <br />
+                    <span className="font-light">{song.artist}</span>
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            {activeSong && (
+              <div className="mt-2 lg:mt-8 flex flex-col text-xs">
+                <h2>Now Playing: {activeSong.title}</h2>
+
+                <iframe
+                  key={activeSong.embed}
+                  src={`https://open.spotify.com/embed/track/${activeSong.embed}?utm_source=generator`}
+                  width="100%"
+                  height="122"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                  title={`Spotify player - ${activeSong.title}`}
+                  className="border-0"
                 />
-              );
-            })}
-          </div>
+              </div>
+            )}
+          </section>
 
-          <div>
-            <h1 className="font-black text-lg lg:text-xl">Web Series</h1>
-            <hr className="border-[var(--border-light)]" />
-          </div>
-
-          <div className="grid grid-cols-2 gap-3">
-            {series.map((serie, index) => {
-              return (
+          {/* <section>
+            <h2 className="font-black text-lg md:text-xl mb-1">Web Series</h2>
+            <hr className="border-black" />
+            <div className="grid grid-cols-2 gap-3 mt-3">
+              {series.map((serie) => (
                 <SeriesCard
-                  key={index}
+                  key={serie.title}
                   title={serie.title}
                   why={serie.why}
                   url={serie.url}
                   image={serie.image}
                 />
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          </section>
 
-          <div>
-            <h1 className="font-black text-lg lg:text-xl">Games</h1>
-            <hr className="border-[var(--border-light)]" />
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {games.map((game, index) => {
-              return <GamesCard key={index} {...game} />;
-            })}
-          </div>
+          <section>
+            <h2 className="font-black text-lg md:text-xl mb-1">Games</h2>
+            <hr className="border-black" />
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">
+              {games.map((game) => (
+                <GamesCard key={game.title} {...game} />
+              ))}
+            </div>
+          </section> */}
         </div>
-      </motion.div>
-    </>
+      </div>
+
+      <div className="details-bar shrink-0 flex justify-between">
+        <span>{activeSong ? "Playing selection" : "No selection"}</span>
+      </div>
+    </motion.div>
   );
 };
 

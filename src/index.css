@@ -142,34 +142,6 @@ body {
   transform: scale(1.12);
 }
 
-.social-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 70px;
-  width: 100%;
-  min-height: 180px;
-  padding: 24px;
-  box-sizing: border-box;
-}
-
-.social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.social-icon {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  cursor: pointer;
-  transition: transform 200ms ease;
-}
-
-.social-icon:hover {
-  transform: rotate(12deg) scale(1.1);
-}
 .bottom-dock {
   position: fixed;
   bottom: 0;
