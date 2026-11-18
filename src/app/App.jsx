@@ -1,5 +1,5 @@
-import CustomCursor from "./components/CustomCursor";
-import WebRoutes from "./WebRoutes";
+import CustomCursor from "../components/CustomCursor";
+import WebRoutes from "../WebRoutes";
 
 const App = () => {
   const savedTheme = localStorage.getItem("theme");
