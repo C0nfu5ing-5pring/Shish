@@ -115,16 +115,16 @@ const GalleryCard = ({
         <div className="border-3 h-fit md:border-[var(--border-light)] hover:border-[var(--border)] hover:rotate-2 transition-all">
           <img
             className="w-50"
-            src={havenAhm}
-            alt="Me at Haven Ahmedabad - 2026"
+            src={bbpsHackathonImage2}
+            alt="BBPS Hackathon 2024 - Felicitation"
             data-cursor="pointer"
           />
         </div>
         <div className="border-3 h-fit md:border-[var(--border-light)] hover:border-[var(--border)] hover:rotate-2 transition-all">
           <img
             className="w-50"
-            src={bbpsHackathonImage2}
-            alt="BBPS Hackathon 2024 - Felicitation"
+            src={havenAhm}
+            alt="Me at Haven Ahmedabad - 2026"
             data-cursor="pointer"
           />
         </div>
