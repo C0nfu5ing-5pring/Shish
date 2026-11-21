@@ -1,20 +1,7 @@
 import { motion, useDragControls } from "motion/react";
 import IndividualProjectCard from "./IndividualProjectCard";
-import { useEffect, useState, useLayoutEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
-
-const getRandomPosition = (container, card) => {
-  const c = container.getBoundingClientRect();
-  const b = card.getBoundingClientRect();
-
-  const maxX = c.width - b.width;
-  const maxY = c.height - b.height;
-
-  return {
-    x: Math.random() * Math.max(0, maxX),
-    y: Math.random() * Math.max(0, maxY),
-  };
-};
 
 const ProjectCard = ({
   containerRef,
@@ -25,7 +12,7 @@ const ProjectCard = ({
   const [repos, setRepos] = useState([]);
   const isActive = activeWindow === "project";
   const cardRef = useRef(null);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [pos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     axios
@@ -63,19 +50,20 @@ const ProjectCard = ({
       }`}
     >
       <div
+        className="title-bar shrink-0 touch-none select-none"
         onPointerDown={(e) => dragControls.start(e)}
-        className="flex justify-between items-center border-b border-(--border) bg-(--header-bg) px-2 lg:px-3 py-1 touch-none"
-        data-cursor="pointer"
       >
-        <h1 className="font-black text-base lg:text-xl">Projects</h1>
+        <button
+          className="close"
+          aria-label="Close window"
+          onPointerDown={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+        />
 
-        <motion.button
-          whileTap={{ scale: 0.9 }}
-          onClick={onClose}
-          className="bg-red-600 border-2 border-black font-black py-1 px-2"
-        >
-          <p className="text-xs lg:text-base text-black">X</p>
-        </motion.button>
+        <h1 className="title">Projects</h1>
       </div>
 
       <div className="m-5 grid grid-cols-2 gap-5">
