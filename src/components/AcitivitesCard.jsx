@@ -1,27 +1,5 @@
 import { motion, useDragControls } from "motion/react";
 import { useState, useRef, useLayoutEffect } from "react";
-import SpotifyCard from "./SpotifyCard";
-import haveItAll from "../images/songs/haveItAll.jpg";
-import hoshiyaar from "../images/songs/hoshiyaar.png";
-import videoGames from "../images/songs/videoGames.png";
-import dontTell from "../images/songs/dontTell.png";
-import dildooba from "../images/songs/dildooba.png";
-import mutual from "../images/songs/mutual.png";
-import kaise from "../images/songs/kaise.png";
-import hardToRead from "../images/songs/hardToRead.png";
-import tires from "../images/webseries/tires.png";
-import wd2 from "../images/games/wd2.png";
-import rdr2 from "../images/games/rdr2.png";
-import wd2Banner from "../images/games/wd2Banner.png";
-import rdr2Banner from "../images/games/rdr2Banner.png";
-import rickroll from "../images/rickRoll.png";
-import lifeIsUnfair from "../images/lifeIsUnfair.png";
-import iGaveAllIHad from "../images/iGaveAllIHad.png";
-import helloMyBaby from "../images/helloMyBaby.png";
-import un4 from "../images/games/un4.png";
-import un4Banner from "../images/games/un4Banner.png";
-import iAmAManOfMyFortuneAndIMustSeekMyFortune from "../images/iAmAManOfMyFortuneAndIMustSeekMyFortune.png";
-import un4Video from "../images/un4Video.png";
 import audionIcon from "../images/icons/audion.png";
 
 const getRandomPosition = (container, card) => {
@@ -44,98 +22,57 @@ const AcitivitesCard = ({
     {
       title: "Have It All",
       artist: "CASTLE BEAT",
-      image: haveItAll,
-      embed: "7t7zUhP20qISNDNa1825kK",
+      embed:
+        "https://embed.music.apple.com/us/album/have-it-all/1634630718?i=1634630721&itscg=30200&itsct=music_box_player&ls=1&app=music&mttnsubad=1634630721&theme=auto",
     },
     {
       title: "Hoshiyaar",
       artist: "Seedhe Maut, Sez on the Beat",
-      image: hoshiyaar,
-      embed: "45OIe9DAqIW9wbNJpQhF1P",
+      embed:
+        "https://embed.music.apple.com/us/album/hoshiyaar/1804725962?i=1804725978&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1804725978&amp;theme=auto",
     },
+
     {
       title: "Video Games",
       artist: "Seedhe Maut",
-      image: videoGames,
-      embed: "3iiQDjlBJdCv7O6jRLmiWq",
+      embed:
+        "https://embed.music.apple.com/us/album/video-games/1812504728?i=1812506985&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1812506985&amp;theme=auto",
     },
     {
       title: "Don't Tell",
       artist: "Dishaan",
-      image: dontTell,
-      embed: "3ibIs3ijJRsQ45MOwuzZjR",
+      embed:
+        "https://embed.music.apple.com/us/album/dont-tell/1698395999?i=1698396003&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1698396003&amp;theme=auto",
     },
     {
       title: "Dil Dooba",
       artist: "Frappe Ash, Calm",
-      image: dildooba,
-      embed: "2vTvYjbONRBCtGLa13u45Y",
+      embed:
+        "https://embed.music.apple.com/us/album/dil-dooba/6812613593?i=6812613789&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=6812613789&amp;theme=auto",
     },
     {
       title: "Mutual",
       artist: "RANJ, Clifr",
-      image: mutual,
-      embed: "25T9KzOqSe44j3nsWuKfiM",
+      embed:
+        "https://embed.music.apple.com/us/album/mutual/6807476243?i=6807476246&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=6807476246&amp;theme=auto",
     },
     {
       title: "Kaise",
       artist: "Frappe Ash, Aman Sagar",
-      image: kaise,
-      embed: "7lE4hlwqJZE7Q19OGqKyXV",
+      embed:
+        "https://embed.music.apple.com/us/album/kaise/1747466384?i=1747467541&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1747467541&amp;theme=auto",
     },
     {
       title: "Hard to Read",
       artist: "Day Wave",
-      image: hardToRead,
-      embed: "7JpcP0YUCNy8UklFgOf4t4",
-    },
-  ];
-
-  const series = [
-    {
-      title: "Tires",
-      why: "Hilarious",
-      url: "https://www.netflix.com/title/81758875",
-      image: tires,
-    },
-  ];
-
-  const games = [
-    {
-      title: "Watchdogs 2",
-      mainThing: "Love the graffiti and assets",
-      image: wd2,
-      banner: wd2Banner,
-      category: "Open World",
-      refundPolicy: "No",
-      qrCode: rickroll,
-      barCode: lifeIsUnfair,
-      timeCost: "100+ hours",
-      world: "San Francisco",
+      embed:
+        "https://embed.music.apple.com/us/album/hard-to-read/1215423842?i=1215424565&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1215424565&amp;theme=auto",
     },
     {
-      title: "RDR 2",
-      mainThing: "Why not?",
-      image: rdr2,
-      banner: rdr2Banner,
-      category: "Open world",
-      refundPolicy: "Huh",
-      qrCode: helloMyBaby,
-      barCode: iGaveAllIHad,
-      timeCost: "4 Summer vacations!",
-      world: "Fictionalised US",
-    },
-    {
-      title: "Uncharted 4",
-      mainThing: "Really awesome views",
-      image: un4,
-      banner: un4Banner,
-      category: "Story",
-      refundPolicy: "No need",
-      qrCode: un4Video,
-      barCode: iAmAManOfMyFortuneAndIMustSeekMyFortune,
-      timeCost: "More than 80 hours for sure",
-      world: "Madagascar, Scotland, Italy, Libertalia, Panama",
+      title: "Jo Bhi Ho",
+      artist: "Frappe Ash",
+      embed:
+        "https://embed.music.apple.com/us/album/jo-bhi-ho/1747466384?i=1747466676&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1747466676&amp;theme=auto",
     },
   ];
 
@@ -158,11 +95,11 @@ const AcitivitesCard = ({
       dragControls={dragControls}
       dragConstraints={containerRef}
       dragMomentum={false}
-      initial={{
-        opacity: 0,
-      }}
+      initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
+        x: pos.x,
+        y: pos.y,
       }}
       exit={{
         opacity: 0,
@@ -173,7 +110,7 @@ const AcitivitesCard = ({
         scale: 0.98,
       }}
       onPointerDown={() => setActiveWindow("activities")}
-      className={`window absolute flex flex-col overflow-hidden w-[90vw] md:w-[420px] max-h-[75vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${
+      className={`window absolute flex flex-col overflow-hidden w-[94vw] min-w-[296px] max-w-[420px] max-h-[75vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${
         isActive ? "z-50" : "z-10"
       }`}
     >
@@ -194,7 +131,7 @@ const AcitivitesCard = ({
         <h1 className="title">Songs</h1>
       </div>
 
-      <div className="details-bar">
+      <div className="details-bar shrink-0">
         <p>8 songs</p>
       </div>
 
@@ -205,7 +142,9 @@ const AcitivitesCard = ({
               {songs.map((song) => (
                 <button
                   key={song.embed}
+                  type="button"
                   onClick={() => setActiveSong(song)}
+                  aria-pressed={activeSong?.embed === song.embed}
                   className={`flex flex-col items-center gap-2 p-1 border-[var(--border)] transition-all ${
                     activeSong?.embed === song.embed
                       ? "bg-[#86878880]"
@@ -214,7 +153,8 @@ const AcitivitesCard = ({
                 >
                   <img
                     src={audionIcon}
-                    alt="Play song"
+                    alt=""
+                    draggable="false"
                     className="w-10 h-10 lg:w-14 lg:h-14 object-contain"
                   />
 
@@ -228,19 +168,36 @@ const AcitivitesCard = ({
             </div>
 
             {activeSong && (
-              <div className="mt-2 lg:mt-8 flex flex-col text-xs">
-                <h2>Now Playing: {activeSong.title}</h2>
+              <div className="mt-4 lg:mt-8 flex flex-col gap-3">
+                <h2 className="text-xs font-black">
+                  Now Playing: {activeSong.title}
+                </h2>
 
-                <iframe
-                  key={activeSong.embed}
-                  src={`https://open.spotify.com/embed/track/${activeSong.embed}?utm_source=generator`}
-                  width="100%"
-                  height="122"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                  title={`Spotify player - ${activeSong.title}`}
-                  className="border-0"
-                />
+                <div className="w-full min-w-0 overflow-hidden">
+                  <iframe
+                    key={activeSong.embed}
+                    src={activeSong.embed}
+                    width="100%"
+                    height="152"
+                    frameBorder="0"
+                    allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                    title={`Apple Music - ${activeSong.title}`}
+                    loading="lazy"
+                    className="border-0 rounded-xl w-full"
+                  />
+                </div>
+
+                <a
+                  href={activeSong.embed.replace(
+                    "embed.music.apple.com",
+                    "music.apple.com",
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-center underline font-bold text-sm"
+                >
+                  Open in Apple Music
+                </a>
               </div>
             )}
           </section>
@@ -248,7 +205,7 @@ const AcitivitesCard = ({
       </div>
 
       <div className="details-bar shrink-0 flex justify-between">
-        <span>{activeSong ? "Playing selection" : "No selection"}</span>
+        <span>{activeSong ? "Selection ready" : "No selection"}</span>
       </div>
     </motion.div>
   );
