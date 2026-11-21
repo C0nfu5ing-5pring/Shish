@@ -1,5 +1,4 @@
 import { motion, useDragControls } from "motion/react";
-import { useState } from "react";
 
 const StatusCard = ({
   containerRef,
@@ -8,14 +7,14 @@ const StatusCard = ({
   activeWindow,
 }) => {
   const isActive = activeWindow === "status";
-  const CARD_WIDTH = 200;
-  const CARD_HEIGHT = 100;
-  const [initialPos] = useState(() => ({
-    x: Math.random() * (window.innerWidth - CARD_WIDTH),
-    y: Math.random() * (window.innerHeight - CARD_HEIGHT),
-  }));
-
   const dragControls = useDragControls();
+
+  const statuses = [
+    { name: "Testing limitations of my 3D Printer" },
+    { name: "Obsessed with my Polaroid Now Camera" },
+    { name: "Hackclubbing - participating in Phantom" },
+    { name: "Preparing for Preboards" },
+  ];
 
   return (
     <>
@@ -26,8 +25,8 @@ const StatusCard = ({
         dragConstraints={containerRef}
         onMouseDown={() => setActiveWindow("status")}
         initial={{
-          x: initialPos.x,
-          y: initialPos.y,
+          x: 100,
+          y: 100,
           opacity: 0,
         }}
         animate={{
@@ -41,46 +40,31 @@ const StatusCard = ({
         whileDrag={{
           scale: 0.9,
         }}
-        className={`bg-[var(--card)]/90 border-2 border-[var(--border)] shadow-[var[--card-shadow]] shadow-xl absolute top-10 left-0 w-60 lg:w-80 overflow-auto flex flex-col ${
+        className={`bg-[var(--card)]/90 window border-2 border-[var(--border)] shadow-[var[--card-shadow]] shadow-xl absolute top-10 left-0 w-60 lg:w-80 overflow-auto flex flex-col ${
           isActive ? "z-50" : "z-10"
         }`}
       >
         <div
+          className="title-bar shrink-0 touch-none select-none"
           onPointerDown={(e) => dragControls.start(e)}
-          className="flex justify-between border-b border-[var(--border)] bg-[var(--header-bg-dark)] px-3 py-1 touch-none"
         >
-          <div>
-            <h1 className="font-black text-lg lg:text-xl">Status</h1>
-          </div>
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            onClick={onClose}
-            className="bg-red-600 border-2 border-black font-black py-1 px-2"
-            data-cursor="pointer"
-          >
-            <p className="text-xs lg:text-base text-black">X</p>
-          </motion.button>
+          <button
+            className="close"
+            aria-label="Close window"
+            onPointerDown={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.stopPropagation();
+              onClose();
+            }}
+          />
+
+          <h1 className="title">{"Status"}</h1>
         </div>
 
         <div className="px-3 py-3 flex flex-col gap-3">
-          <h1 className="text-xs lg:text-base w-fit">
-            Testing limitations of my 3D Printer
-          </h1>
-          <h1 className="text-xs lg:text-base w-fit">
-            Obsessed with Polaroid Camera
-          </h1>
-          <h1>Learning Game Development (Godot, Ren'Py)</h1>
-          <h1 className="text-xs lg:text-base w-fit">
-            Hackclubbing - participating in{" "}
-            <a
-              className="underline underline-offset-4"
-              href="https://phantom.hackclub.com/?ref=Gf7Nd"
-              data-cursor="pointer"
-              target="_blank"
-            >
-              Phantom
-            </a>
-          </h1>
+          {statuses.map((status) => {
+            return <h1>{status.name}</h1>;
+          })}
         </div>
       </motion.div>
     </>
