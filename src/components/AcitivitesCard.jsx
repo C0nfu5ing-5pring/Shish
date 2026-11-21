@@ -159,8 +159,6 @@ const AcitivitesCard = ({
       dragConstraints={containerRef}
       dragMomentum={false}
       initial={{
-        x: pos.x,
-        y: pos.y,
         opacity: 0,
       }}
       animate={{
@@ -175,13 +173,9 @@ const AcitivitesCard = ({
         scale: 0.98,
       }}
       onPointerDown={() => setActiveWindow("activities")}
-      className={`window absolute flex flex-col overflow-hidden w-[90vw] md:w-[560px]  ${
+      className={`window absolute flex flex-col overflow-hidden w-[90vw] md:w-[420px] max-h-[75vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${
         isActive ? "z-50" : "z-10"
       }`}
-      style={{
-        left: 0,
-        top: 0,
-      }}
     >
       <div
         className="title-bar shrink-0 touch-none select-none"
@@ -198,12 +192,6 @@ const AcitivitesCard = ({
         />
 
         <h1 className="title">Songs</h1>
-
-        <button
-          className="resize"
-          aria-label="Resize the window"
-          onPointerDown={(e) => e.stopPropagation()}
-        />
       </div>
 
       <div className="details-bar">
@@ -256,32 +244,6 @@ const AcitivitesCard = ({
               </div>
             )}
           </section>
-
-          {/* <section>
-            <h2 className="font-black text-lg md:text-xl mb-1">Web Series</h2>
-            <hr className="border-black" />
-            <div className="grid grid-cols-2 gap-3 mt-3">
-              {series.map((serie) => (
-                <SeriesCard
-                  key={serie.title}
-                  title={serie.title}
-                  why={serie.why}
-                  url={serie.url}
-                  image={serie.image}
-                />
-              ))}
-            </div>
-          </section>
-
-          <section>
-            <h2 className="font-black text-lg md:text-xl mb-1">Games</h2>
-            <hr className="border-black" />
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">
-              {games.map((game) => (
-                <GamesCard key={game.title} {...game} />
-              ))}
-            </div>
-          </section> */}
         </div>
       </div>
 
