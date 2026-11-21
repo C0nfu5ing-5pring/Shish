@@ -6,8 +6,9 @@ import GalleryCard from "../components/GalleryCard";
 import ContactCard from "../components/ContactCard";
 import Skills from "../components/Skills";
 import StatusCard from "../components/StatusCard";
-import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 import fileIcon from "../images/icons/fileIcon.png";
+import appleLogo from "../images/icons/logo.png";
+import trashIcon from "../images/icons/trashIcon.png";
 
 const Home = () => {
   const containerRef = useRef(null);
@@ -55,13 +56,17 @@ const Home = () => {
             `,
         }}
       >
-        <div className="absolute top-0 left-0 right-0 z-[1000] h-9 bg-white border-b-2 border-black flex items-center px-4 md:px-7 gap-4 md:gap-6 font-bold text-sm md:text-lg select-none">
-          <span className="text-lg">aPPLE logo</span>
-          <span>File</span>
-          <span>Edit</span>
-          <span>View</span>
-          <span>Label</span>
-          <span>Special</span>
+        <ul
+          role="menu-bar"
+          className="absolute top-0 left-0 right-0 h-9  bg-white flex items-center px-4 md:px-7 gap-4 md:gap-6 select-none"
+        >
+          <li role="menu-item">
+            <img
+              src={appleLogo}
+              className="w-6 md:w-6.5"
+              alt="1994 Apple Logo"
+            />
+          </li>
 
           <div className="ml-auto flex items-center gap-3 md:gap-5">
             <span>
@@ -70,23 +75,22 @@ const Home = () => {
                 minute: "2-digit",
               })}
             </span>
-            <span>Guide</span>
           </div>
-        </div>
+        </ul>
 
         <div
           className="window absolute z-10 flex flex-col"
           style={{
             left: "4%",
             top: "12%",
-            width: "min(630px, 90vw)",
-            height: "min(400px, 65vh)",
+            width: "min(625px, 90vw)",
+            height: "min(405px, 65vh)",
             maxWidth: "none",
           }}
         >
           <div className="title-bar shrink-0">
             <button className="close" aria-label="Close" disabled />
-            <h1 className="title">Shish HD</h1>
+            <h1 className="title">Shish</h1>
             <button className="resize" aria-label="Resize" disabled />
           </div>
 
@@ -122,28 +126,14 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="absolute right-5 top-16 flex flex-col gap-6 z-[1]">
-          {["Macintosh HD", "Shish HD"].map((disk) => (
-            <button
-              key={disk}
-              onClick={() => setActiveWindow(null)}
-              className="flex flex-col items-center gap-1"
-            >
-              <img
-                src={fileIcon}
-                alt=""
-                draggable="false"
-                className="w-12 h-12 object-contain"
-              />
-
-              <span className="text-xs font-bold bg-white px-1">{disk}</span>
-            </button>
-          ))}
-        </div>
-
         <div className="absolute bottom-5 right-8 flex flex-col items-center z-[1]">
-          <span className="text-3xl">Trash fileIcon</span>
-          <span className="text-xs font-bold bg-white px-1">Trash</span>
+          <img
+            src={trashIcon}
+            className="w-10 h-10 lg:w-14 lg:h-14 object-contain"
+          />
+          <span className="text-xs font-bold inactive-title-bar bg-white px-1">
+            Trash
+          </span>
         </div>
 
         <AnimatePresence>
