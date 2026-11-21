@@ -62,8 +62,8 @@ const StatusCard = ({
         </div>
 
         <div className="px-3 py-3 flex flex-col gap-3">
-          {statuses.map((status) => {
-            return <h1>{status.name}</h1>;
+          {statuses.map((status, index) => {
+            return <h1 key={index}>{status.name}</h1>;
           })}
         </div>
       </motion.div>
