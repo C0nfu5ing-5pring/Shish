@@ -8,6 +8,7 @@ import nani_nana from "../images/gallery/nani_nana.jpg";
 import mum2 from "../images/gallery/mum2.jpg";
 import havenAhm from "../images/gallery/havenAhm.png";
 import fileIcon from "../images/icons/fileIcon.png";
+import family from "../images/gallery/family.jpg";
 
 import { useState, useRef } from "react";
 
@@ -37,6 +38,11 @@ const images = [
     src: bbpsHackathonImage2,
     alt: "BBPS Hackathon 2024 - Felicitation",
     category: "Me",
+  },
+  {
+    src: family,
+    alt: "My family!",
+    category: "Family",
   },
 ];
 
