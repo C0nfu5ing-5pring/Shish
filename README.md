@@ -1,61 +1,28 @@
-# SHISH FRUTWALA
+# SHISH
 
-### HACKCLUBBER
+A personal website which tells more about me rather. it's NOT a generic portfolio site
+I wanted something that felt more like old times. And as I am an apple fanboy, i made a 1994 macOS themed site.
 
-`18` `INDIA`
+## TECH USED
 
----
+- React
+- Tailwind CSS
+- Motion (Framer Motion)
+- JavaScript
+- CSS
+- system.css
 
-> I BUILD WEBSITES, GAMES AND SOMETIMES JUST WEIRD CAD DESIGNS THAT I AM AFRAID OF PRINTING ON MY 3D PRINTER
+## FEATURES
 
-[ GITHUB ](https://github.com/C0nfu5ing-5pring) / [ LINKEDIN ](https://www.linkedin.com/in/shish-frutwala) / [ EMAIL ](mailto:shishfruitwala29@gmail.com)
+- Interactive, draggable windows
+- 1994 macOS inspired interface
+- Shows my projects, favourite songs, photos I took on my Polaroid Now camera
+- It's responsive enough ig
 
----
+**Live:** [shish.live](https://shish.live)
 
-## WHAT I WORK WITH
+**GitHub:** [C0nfu5ing-5pring](https://github.com/C0nfu5ing-5pring)
 
-**FRONTEND**
-
-<p align="left">
-  <img src="https://skillicons.dev/icons?i=html,css,sass,tailwind,js,react,nextjs" />
-  <img src="https://skillicons.dev/icons?i=graphql" />
-</p>
-
-**BACKEND & DATABASE**
-
-<p align="left">
-  <img src="https://skillicons.dev/icons?i=nodejs,express,mysql,mongodb,python" />
-</p>
-
-**INFRASTRUCTURE & DEPLOYMENT**
-
-<p align="left">
-  <img src="https://skillicons.dev/icons?i=raspberrypi,cloudflare,vercel,linux,git,github" />
-</p>
-
-**GAME DEVELOPMENT**
-
-<p align="left">
-  <img src="https://skillicons.dev/icons?i=godot" />
-  <img src="https://cdn.simpleicons.org/renpy/FF7F7F" height="48" alt="Ren'Py" />
-</p>
-
-**3D PRINTING**
-
-<p align="left">
-  <a href="https://www.onshape.com/">
-  ONSHAPE
-  </a>
-</p>
-
-## SELECTED WORK
-
-I LIKE BUILDING THINGS THAT SOLVE ACTUAL PROBLEMS.
-
-→ [SARAL RATES](https://github.com/C0nfu5ing-5pring)  
-Agricultural market prices for farmers and traders
-
-→ [SOLVE IT](https://github.com/C0nfu5ing-5pring)  
-Find and share previous year question papers for competitive examinations
+**LinkedIn:** [shish-frutwala](https://www.linkedin.com/in/shish-frutwala)
 
 ---
